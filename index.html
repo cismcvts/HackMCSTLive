@@ -1,0 +1,491 @@
+<!--
+    HackMCST website, made for hackMCST IX 2024.
+    Code written by Matthew Weir.
+    Libraries: Bootstrap for rendering/responsiveness/components/icons, Google Fonts for fonts.
+-->
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+    <head>
+        <!-- Controls the way the website renders, especially on mobile. Don't change this. -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--
+            This is metadata for the website.
+            This controls the icon in the browser tab and when saved to your desktop or phone homepage.
+            It also controls the way the website is displayed when linked on social media website such as Discord or Twitter.
+         -->
+        <meta name="description" content="Empowering The Future.">
+        <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+        <link rel="manifest" href="site.webmanifest">
+
+        <!-- Title of the website, this shows up in the browser tab -->
+        <title>hackMCST IX</title>
+
+        <!-- Load the fonts from Google Fonts. https://fonts.google.com/ for more info -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+        <!--
+            This project uses Bootstrap to help with spacing, responsiveness, and
+            elements like the carousels and buttons.
+            https://getbootstrap.com/ for more info
+        -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+        <!-- CSS code for the website -->
+        <link rel="stylesheet" href="css/index.css">
+    </head>
+    <body>
+        <!-- This is the top navigation bar -->
+        <nav class="navbar position-fixed top-0 w-100" id="navbar">
+            <div class="container">
+                <a class="navbar-brand font-monospace" href="#">
+                    <img src="img/logo64.png" alt="Logo" height="64">
+                    <!-- Anything with the class "scroll-fade" will fade in as the website scrolls down -->
+                    <span class="scroll-fade d-none d-sm-inline">hackMCST IX</span>
+                </a>
+                <div class="d-flex align-items-baseline gap-2">
+                    <a class="btn btn-outline-light font-monospace scroll-fade" id="sign-up-navbar" target="_blank" href="#" role="button">Register</a>
+                    <!-- This is the menu button in the top right corner -->
+                    <button class="btn btn-outline-light" type="button" aria-label="Toggle navigation" data-bs-toggle="offcanvas" data-bs-target="#menu" aria-controls="menu">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <!-- "home-bg" is where the background is rendered -->
+        <div id="home-bg"></div>
+        <!-- The home section of the website -->
+        <section id="home" class="container text-center text-lg-start">
+            <h1 class="display-1 font-monospace" id="heading-text">hackMCST IX 2024</h1>
+            <!-- Anything with the class "fade-in" will fade in after 1.89 seconds (which gives time for the text to show -->
+            <h1 class="fade-in">Empowering The Future.</h1>
+            <h5 id="date" class="fade-in">Saturday, April 13th, 2024</h5>
+            <a class="btn btn-outline-primary btn-lg mt-2 fade-in font-monospace sign-up" target="_blank" href="#" role="button">Register now</a>
+            <a id="scroll-indicator" class="link-light" href="#about">
+                <!-- This is the arrow that moves up and down at the bottom of the home page -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+                    <path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659"/>
+                </svg>
+            </a>
+        </section>
+        <!-- The about section of the website -->
+        <section id="about" class="bg-dark">
+            <div class="container py-5">
+                <div class="row">
+                    <!-- The two sections of the about page. They render side by side on bigger screens, and top to bottom on smaller screens -->
+                    <div class="col-lg-6">
+                        <h1 class="font-monospace text-center text-lg-start">Hack Your Dreams</h1>
+                        <p>hackMCST is an annual 12-hour hackathon at Morris County School of Technology hosted by the Computer and Information Sciences academy. Students from grades 7 to 12 are given the opportunity to build, or "hack together", various apps, videogames, networks, or even robots! The event is 100% free (provided you bring your own technology), and lunch, dinner, and snacks are provided at no extra cost. Various workshops are held each year for hackers of all skill levels to learn new things, and final projects are judged at the end of the night, with the best projects winning various prizes!</p>
+                        <p>hackMCST IX<br>Saturday, April 13th, 9 AM - 9 PM<br>Registration opens at 8 AM<br>400 East Main Street (Route 53)<br>Denville, New Jersey 07834</p>
+                        <p>We hope to see you there!</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <!-- This is the carousel that shows all the images. -->
+                        <!-- Here's how to add more images:
+                            1) Add a <button> element to the carousel-indicators div. See the format below, but "data-bs-slide-to" has to be set to the correct slide number (indexed at 0).
+                            2) Add the actual <div class="carousel-item"> to the carousel-inner div. This is where the image is, follow the format below. Each slide's number is the order they are listed.
+                        -->
+                        <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <!-- Step 1 -->
+                                <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                <button type="button" data-bs-target="#carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                <button type="button" data-bs-target="#carousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                <button type="button" data-bs-target="#carousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                                <button type="button" data-bs-target="#carousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <!-- Step 2 -->
+                                <div class="carousel-item active">
+                                    <img src="img/carousel-a.jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img/carousel-b.jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img/carousel-c.jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img/carousel-d.jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img/carousel-e.jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img/carousel-f.jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img/carousel-g.jpg" class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+                            <!-- These are the "previous"/"next" buttons. You don't need to change these. -->
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- The documentary section of the website -->
+        <section id="documentary">
+            <div class="container py-5 text-center">
+                <h1 class="font-monospace mb-5 text-white">A Look in the Past</h1>
+                <figure class="figure">
+                    <!--
+                        This <iframe> is where the video is rendered, with the code basically taken straight from YouTube's "embed video" code.
+                        I recommend using Privacy Enhanced mode (youtube-nocookie.com instead of youtube.com).
+                    -->
+                    <iframe class="figure-img w-100" height="315" src="https://www.youtube-nocookie.com/embed/XSNxQHqqMVQ" title="YouTube video player" style="border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"></iframe>
+                    <figcaption class="figure-caption text-white">Join Anthony Romanushko as he walks you through the events of hackMCST V back in 2019</figcaption>
+                </figure>
+            </div>
+        </section>
+        <!-- The FAQ section of the website -->
+        <section id="faq" class="bg-dark">
+            <div class="container py-5">
+                <h1 class="text-center font-monospace mb-4">Frequently-Asked Questions</h1>
+                <div class="accordion" id="faq-accordion">
+                    <!--
+                        To add a new FAQ, just use the same format as below and add another "accordian-item".
+                        Make sure to change all instanced of "faq-N" (data-bs-target="#faq-N", aria-controls="faq-N", id="faq-N") with the faq number (i.e. "faq-1").
+                    -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-1" aria-expanded="false" aria-controls="faq-1">
+                                What is a hackathon?
+                            </button>
+                        </h2>
+                        <div id="faq-1" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+                            <div class="accordion-body">
+                                A hackathon is a coding event in which hackers and/or teams of hackers develop a "hack". A hack could be anything... a website, an app, or any other invention. Let your imagination run wild!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-2" aria-expanded="false" aria-controls="faq-2">
+                                Who can participate?
+                            </button>
+                        </h2>
+                        <div id="faq-2" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+                            <div class="accordion-body">
+                                Any student currently in grade 7 through 12 can participate!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-3" aria-expanded="false" aria-controls="faq-3">
+                                How much does it cost?
+                            </button>
+                        </h2>
+                        <div id="faq-3" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+                            <div class="accordion-body">
+                                hackMCST IX is 100% free! That's one of the best things about hackathons: there's nothing to lose! Lunch and dinner are provided at no cost, and each hacker will receive a free hackMCST IX T-shirt!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-4" aria-expanded="false" aria-controls="faq-4">
+                                How long is the event?
+                            </button>
+                        </h2>
+                        <div id="faq-4" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+                            <div class="accordion-body">
+                                hackMCST IX is a 12-hour event at Morris County School of Technology. The event starts at 9 AM and ends at 9 PM, giving each team plenty of time to create an amazing hack!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-5" aria-expanded="false" aria-controls="faq-5">
+                                What if I have never been to a hackathon before?
+                            </button>
+                        </h2>
+                        <div id="faq-5" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+                            <div class="accordion-body">
+                                You've come to the right place! hackMCST IX is the perfect place to get your feet on the ground and dip your toes in the water. There is something for every skills level at hackMCST!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-6" aria-expanded="false" aria-controls="faq-6">
+                                Do I need to already have a team beforehand?
+                            </button>
+                        </h2>
+                        <div id="faq-6" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+                            <div class="accordion-body">
+                                Totally not! We have a big team-building session in the beginning of the hackathon, so hackers can connect to other hackers wit similar interests to form a team of up to 4 members.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-7" aria-expanded="false" aria-controls="faq-7">
+                                Do I need to bring anything?
+                            </button>
+                        </h2>
+                        <div id="faq-7" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+                            <div class="accordion-body">
+                                You need to bring any technology or personal device that you plan on using, such as a laptop or chromebook. If the hack you plan on making involves any additional peripherals, you need to bring those with you to. Two meals and additional snacks will be provided.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-8" aria-expanded="false" aria-controls="faq-8">
+                                Do I need a parent/guardian/teacher chaperone to come with me?
+                            </button>
+                        </h2>
+                        <div id="faq-8" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+                            <div class="accordion-body">
+                                Nope! We have chaperones at the event who watch the hackers and make sure everything goes safely. Just drop off the hacker in the morning and pick them up at night!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-9" aria-expanded="false" aria-controls="faq-9">
+                                Can I bring a pre-made project?
+                            </button>
+                        </h2>
+                        <div id="faq-9" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+                            <div class="accordion-body">
+                                While you can use assets (such as images or music) that you made in advance, you must actually make your hack at the event. All code must be actually produced at the hackathon.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-10" aria-expanded="false" aria-controls="faq-10">
+                                Can I use AI in the making of my project?
+                            </button>
+                        </h2>
+                        <div id="faq-10" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+                            <div class="accordion-body">
+                                You can use AI assisted tools (such as GitHub Copilot) to assist in the development of your project, but it should still reflect your initial vision. It should not strongly influence the outcome of the project.<br><br>You CAN use AI as part of your project, however (such as for algorithms, backend management, or making something similar to an image detector).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <small class="text-center mt-3 d-block">If you have any other questions, feel free to contact us at <a href="mailto:cis@mcvts.org" target="_blank">cis@mcvts.org</a>, and we will be glad to answer.</small>
+            </div>
+        </section>
+        <!-- The testimonials section of the website -->
+        <!-- This is another carousel like the image one above, but it doesn't have the indicators at the bottom, so you only need to use step 2 from above to add new testimonials. -->
+        <section id="testimonials" class="bg-light text-dark">
+            <div class="container pt-5 pb-4">
+                <div id="carousel-testimonials" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="d-flex justify-content-center">
+                                <figure class="w-75">
+                                    <blockquote class="blockquote">
+                                        I remember seeing so many kids working on so many creative and unique projects. It was amazing to see others who enjoyed computer science and to see what others could come up with was just amazing. That experience made me realize how cool computer science could be and what I could do with it.
+                                    </blockquote>
+                                    <figcaption class="blockquote-footer">
+                                        Afnan, Parsippany
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="d-flex justify-content-center">
+                                <figure class="w-75">
+                                    <blockquote class="blockquote">
+                                        My Hackathon experience was nothing short of amazing! My favorite parts were the collaboration between me and teammates, seeing the end result of our project, and how enjoyable the environment is. hackMCST is the best and I definitely recommend joining!
+                                    </blockquote>
+                                    <figcaption class="blockquote-footer">
+                                        Yashi, Parsippany
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="d-flex justify-content-center">
+                                <figure class="w-75">
+                                    <blockquote class="blockquote">
+                                        Participating in hackMCST is a highly enriching experience, characterized by a dynamic environment that seamlessly integrates STEM skills with teamwork, problem-solving, and continuous learning. The atmosphere is vibrant, showcasing a diverse array of groups and their impressive innovations. Overall, hackMCST is not only enjoyable but also immensely rewarding, offering the satisfaction of creation and competition alongside the opportunity to gain new knowledge and ideas from fellow participants.
+                                    </blockquote>
+                                    <figcaption class="blockquote-footer">
+                                        Adithi, Parsippany
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="d-flex justify-content-center">
+                                <figure class="w-75">
+                                    <blockquote class="blockquote">
+                                        As a student in the Academy for Computer and Information Sciences at the Morris County School of Technology, I thought HackMCST’s workshops would teach concepts already in my arsenal. I was wrong; HackMCST’s workshops offered me a wide range of curricula I was unfamiliar with and new to.
+                                    </blockquote>
+                                    <figcaption class="blockquote-footer">
+                                        Brayden, Parsippany
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="d-flex justify-content-center">
+                                <figure class="w-75">
+                                    <blockquote class="blockquote">
+                                        During the two years I participated in hackMCST, I had a great time. I learned new skills in various workshops, and I got to work with my friends to put together our projects, some of which I have used in my own personal endeavors since. I would recommend the event to anyone who has any interest in making something with technology.
+                                    </blockquote>
+                                    <figcaption class="blockquote-footer">
+                                        Matthew, Pequannock
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="d-flex justify-content-center">
+                                <figure class="w-75">
+                                    <blockquote class="blockquote">
+                                        Our team of sophomores placed 1st in HackMCST 2023 under the Artificial Intelligence category. For our project, we hacked together a simple AI audio transcripter tool, precise down to the millisecond, that could be applied for audio editing purposes, to solve the problem of having to listen to audio snippets over and over to know where to cut. This was an overall very fun event, there were snacks and lots of food, and it was fun hanging out with my friends. This event is not just about coding, it is about presentation skills, communication skills, and overall creativity.
+                                    </blockquote>
+                                    <figcaption class="blockquote-footer">
+                                        Mihir, Morristown
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="d-flex justify-content-center">
+                                <figure class="w-75">
+                                    <blockquote class="blockquote">
+                                        HackMCST has been a wonderful experience. Not only did I have fun and meet new people, but I also learned many computer science and electrical engineering related concepts. I would highly recommend HackMCST to anyone and everyone.
+                                    </blockquote>
+                                    <figcaption class="blockquote-footer">
+                                        Jash, Parsippany
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="d-flex justify-content-center">
+                                <figure class="w-75">
+                                    <blockquote class="blockquote">
+                                        hackMCST exposed me to various projects and ideas that other people have been working on. It helped me realize what goes into developing and deploying a project. The workshops also helped me learn new skills that I use to this day.
+                                    </blockquote>
+                                    <figcaption class="blockquote-footer">
+                                        Nishit, Parsippany
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-testimonials" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel-testimonials" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- The bottom registration section. It just has another register button basically -->
+        <section id="register" class="py-5">
+            <div class="container py-5 text-center">
+                <h5 class="display-5 font-monospace mt-5 mb-4">So, what are you waiting for?</h5>
+                <a class="btn btn-outline-primary btn-lg font-monospace sign-up mb-5" target="_blank" href="#" role="button">Register now</a>
+            </div>
+        </section>
+        <!-- The sponsor section. TODO: Add sponsors and documentation -->
+        <section id="sponsors" class="bg-dark">
+            <div class="container py-5 text-center">
+                <h1 class="font-monospace">Sponsors</h1>
+                <span>We are grateful to our generous partners who make running hackMCST possible:</span>
+                <p>TODO: sponsors go here (when we have the list of sponsors)</p>
+            </div>
+        </section>
+        <!-- The footer at the bottom of the site -->
+        <footer>
+            <div class="container py-5 text-center">
+                <h6>hackMCST IX 2024</h6>
+                <a href="https://instagram.com/hackmcst" target="_blank" class="link-light mx-1 text-decoration-none">
+                    <!-- The instagram logo -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                    </svg>
+                </a>
+                <a href="https://facebook.com/hackmcst" target="_blank" class="link-light mx-1 text-decoration-none">
+                    <!-- The facebook logo -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                    </svg>
+                </a>
+                <a href="https://twitter.com/hackmcst" target="_blank" class="link-light mx-1 text-decoration-none">
+                    <!-- The twitter logo -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15"/>
+                    </svg>
+                </a>
+            </div>
+        </footer>
+        <!-- The side menu, or "offcanvas" as bootstrap calls it. -->
+        <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="menu" aria-labelledby="meunLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="menuLabel">hackMCST IX</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="list-group list-group-flush mb-4">
+                    <!--
+                        Use this format to add more links, if you need to.
+                        The "menu-link" class is what causes the menu to close when you click it (i.e. if you want the website to scroll to a section).
+                        If a link doesn't have it (like the registration link), it won't close the menu when you click it.
+                    -->
+                    <a href="#home" class="list-group-item list-group-item-action menu-link">Home</a>
+                    <a href="#about" class="list-group-item list-group-item-action menu-link">About</a>
+                    <a href="#documentary" class="list-group-item list-group-item-action menu-link">Documentary</a>
+                    <a href="#faq" class="list-group-item list-group-item-action menu-link">FAQs</a>
+                    <a href="#testimonials" class="list-group-item list-group-item-action menu-link">Testimonials</a>
+                    <a href="#sponsors" class="list-group-item list-group-item-action menu-link">Sponsors</a>
+                    <a href="#" class="list-group-item list-group-item-action" target="_blank">Register</a>
+                </div>
+                <div class="text-center mt-1">
+                    <a href="https://instagram.com/hackmcst" target="_blank" class="link-light mx-1 text-decoration-none">
+                        <!-- The instagram logo -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                        </svg>
+                    </a>
+                    <a href="https://facebook.com/hackmcst" target="_blank" class="link-light mx-1 text-decoration-none">
+                        <!-- The facebook logo -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/hackmcst" target="_blank" class="link-light mx-1 text-decoration-none">
+                        <!-- The twitter logo -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- The javascript script for bootstrap -->
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <!-- The javascript script for the website -->
+        <script src="js/index.js"></script>
+    </body>
+</html>

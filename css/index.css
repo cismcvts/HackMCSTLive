@@ -1,0 +1,111 @@
+/* Code written by Matthew Weir */
+
+/* The fade in animation for the objects */
+@keyframes fade-in {
+    0%, 63% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* The fade in animation for the background image */
+@keyframes home-bg {
+    0%, 63% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+/* The up and down animation for the scroll arrow at the bottom of the home page */
+@keyframes scroll-indicator {
+    0% {
+        transform: none;
+    }
+    25% {
+        transform: translateY(-25%);
+    }
+    75% {
+        transform: translateY(25%);
+    }
+}
+
+/* Global variables */
+:root {
+    --red: #ef001b;
+    --white: #ffffff;
+}
+
+body {
+    font-family: "Ubuntu", sans-serif;
+}
+
+#home-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -99;
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(35%) blur(5px);
+    animation-name: home-bg;
+    animation-duration: 3s;
+}
+
+#home {
+    padding-top: 9rem;
+    height: 100vh;
+}
+
+#date {
+    margin-top: 5rem;
+}
+
+.sign-up {
+    --bs-btn-color: pink;
+    --bs-btn-border-color: pink;
+    --bs-btn-hover-bg: var(--red);
+    --bs-btn-hover-border-color: var(--red);
+    --bs-btn-active-bg: var(--red);
+    --bs-btn-active-border-color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+#sign-up-navbar {
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+.font-monospace {
+    font-family: "Ubuntu Mono", monospace !important;
+}
+
+.fade-in {
+    animation-name: fade-in;
+    animation-duration: 3s;
+}
+
+#documentary, footer {
+    background-color: var(--bs-red);
+}
+
+#navbar {
+    z-index: 99;
+}
+
+#scroll-indicator {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    animation: 2s linear 3s infinite scroll-indicator, 3s fade-in;
+}
