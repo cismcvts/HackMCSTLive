@@ -1,5 +1,5 @@
 # hackMCST IX Website
-![logo](img/apple-touch-icon.png)
+![logo](img/full-logo.png)
 
 This is the website for hackMCST IX, hosted on April 13th, 2024.
 

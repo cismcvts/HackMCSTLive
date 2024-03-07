@@ -109,3 +109,27 @@ body {
     left: 50%;
     animation: 2s linear 3s infinite scroll-indicator, 3s fade-in;
 }
+
+.sponsor {
+    width: 65%;
+}
+
+@media (min-width: 576px) {
+    .sponsor {
+        width: 45%;
+    }
+}
+
+@media (min-width: 768px) {
+    .sponsor {
+        width: 25%;
+    }
+}
+
+.sponsor > .card {
+    transition: transform 0.25s;
+}
+
+.sponsor > .card:hover {
+    transform: translateY(-5%);
+}
