@@ -1,6 +1,6 @@
 /* Code written by Matthew Weir */
 
-/* The fade in animation for the objects */
+/* The fade in animation for most things */
 @keyframes fade-in {
     0%, 63% {
         opacity: 0;
@@ -9,6 +9,18 @@
     100% {
         opacity: 1;
         transform: none;
+    }
+}
+
+/* The fade in animation for the scroll indicator */
+@keyframes scroll-indicator-fade {
+    0%, 63% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
     }
 }
 
@@ -25,13 +37,13 @@
 /* The up and down animation for the scroll arrow at the bottom of the home page */
 @keyframes scroll-indicator {
     0% {
-        transform: none;
+        transform: translateX(-50%) translateY(0);
     }
     25% {
-        transform: translateY(-25%);
+        transform: translateX(-50%) translateY(-25%);
     }
     75% {
-        transform: translateY(25%);
+        transform: translateX(-50%) translateY(25%);
     }
 }
 
@@ -107,7 +119,8 @@ body {
     position: absolute;
     bottom: 5%;
     left: 50%;
-    animation: 2s linear 3s infinite scroll-indicator, 3s fade-in;
+    animation: 2s linear 3s infinite scroll-indicator, 3s scroll-indicator-fade;
+    transform: translateX(-50%);
 }
 
 .sponsor {
