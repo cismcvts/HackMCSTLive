@@ -1,1 +1,16 @@
-{"name":"hackMCST IX","short_name":"hackMCST IX","icons":[{"src":"img/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"img/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ef001b","background_color":"#212529","display":"standalone"}
+{
+    "name": "hackMCST IX",
+    "short_name": "hackMCST IX",
+    "icons": [{
+        "src": "img/android-chrome-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+    }, {
+        "src": "img/android-chrome-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+    }],
+    "theme_color": "#ef001b",
+    "background_color": "#212529",
+    "display": "standalone"
+}

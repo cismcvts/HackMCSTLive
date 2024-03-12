@@ -54,7 +54,7 @@
 
 
     </head>
-    <body>
+    <body class="d-flex flex-column">
         <!-- This is the top navigation bar -->
         <nav class="navbar position-fixed top-0 w-100" id="navbar">
             <div class="container">
@@ -96,7 +96,8 @@
                     <div class="col-lg-6">
                         <h1 class="font-monospace text-center text-lg-start">Hack Your Dreams</h1>
                         <p>hackMCST is an annual 12-hour hackathon at Morris County School of Technology hosted by the Computer and Information Sciences Academy. Students from grades 7 to 12 are given the opportunity to build, or "hack together", various apps, videogames, networks, or even robots! The event is 100% free (provided you bring your own technology), and lunch, dinner, and snacks are provided at no extra cost. Various workshops are held each year for hackers of all skill levels to learn new things, and final projects are judged at the end of the night, with the best projects winning various prizes!</p>
-                        <p>hackMCST IX<br>Saturday, April 13th, 9 AM - 9 PM<br>Check-in opens at 8 AM<br><br>Morris County School of Technology<br>400 East Main Street (Route 53)<br>Denville, New Jersey 07834</p>
+                        <p>hackMCST IX<br>Saturday, April 13th, 9 AM - 9 PM<br>Check-in opens at 8 AM<br></p>
+                        <p>Morris County School of Technology<br>400 East Main Street (Route 53)<br>Denville, New Jersey 07834</p>
                         <p>We hope to see you there!</p>
                     </div>
                     <div class="col-lg-6">
@@ -221,7 +222,7 @@
                         </h2>
                         <div id="faq-4" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
                             <div class="accordion-body">
-                                hackMCST IX is a 12-hour event at Morris County School of Technology. The event starts at 9 AM and ends at 9 PM, giving each team plenty of time to create an amazing hack!
+                                hackMCST IX is a 12-hour event at Morris County School of Technology. The event starts at 9 AM and ends at 9 PM, with check-in at 8 AM, giving each team plenty of time to create an amazing hack!
                             </div>
                         </div>
                     </div>
@@ -294,6 +295,18 @@
                         <div id="faq-10" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
                             <div class="accordion-body">
                                 You can use AI assisted tools (such as GitHub Copilot) to assist in the development of your project, but it should still reflect your initial vision. It should not strongly influence the outcome of the project.<br><br>You CAN use AI as part of your project, however (such as for algorithms, backend management, or making something similar to an image detector).
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-11" aria-expanded="false" aria-controls="faq-11">
+                                What is the Code of Conduct?
+                            </button>
+                        </h2>
+                        <div id="faq-11" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+                            <div class="accordion-body">
+                                <a href="conduct.html">Click here</a> to see the hackMCST IX Code of Conduct. All attendees are expected to adhere to the Code of Conduct for the entire duration of the event.
                             </div>
                         </div>
                     </div>
@@ -427,24 +440,22 @@
             <div class="container py-5 text-center">
                 <h1 class="font-monospace">Sponsors</h1>
                 <span class="d-block mb-5">We are grateful to our generous partners who make running hackMCST possible:</span>
-                <div class="row row-cols-sm-2 row-cols-md-3 gap-3 gy-4 justify-content-center mb-3">
+                <div class="row row-cols-sm-2 row-cols-md-3 gap-3 gy-4 justify-content-center mb-3 user-select-none">
                     <!-- Make a new <div class="sponsor"> section for each sponsor, use the format below  -->
                     <div class="sponsor">
-                        <a class="card text-bg-light h-100 d-block text-decoration-none" href="https://mcvts.membershiptoolkit.com/" target="_blank">
-                            <img src="img/sponsors/mcst-pto.png" class="card-img-top mb-2" alt="MCST Parent-Teacher Organization">
+                        <a class="card text-bg-light h-100 text-decoration-none" href="https://mcvts.membershiptoolkit.com/" target="_blank">
+                            <div class="card-image-top mb-2 flex-grow-1 d-flex align-items-center">
+                                <img src="img/sponsors/mcst-pto.png" class="w-100" alt="MCST Parent-Teacher Organization">
+                            </div>
                             <h5 class="card-title">MCST Parent-Teacher Organization</h5>
                         </a>
                     </div>
                     <div class="sponsor">
-                        <a class="card text-bg-light h-100 d-block text-decoration-none" href="https://mcvts.membershiptoolkit.com/" target="_blank">
-                            <img src="img/sponsors/luma.jpg" class="card-img-top mb-2" alt="Luma Hosting Inc.">
+                        <a class="card text-bg-light h-100 text-decoration-none" href="https://luma.im/" target="_blank">
+                            <div class="card-image-top mb-2 flex-grow-1 d-flex align-items-center">
+                                <img src="img/sponsors/luma.jpg" class="w-100" alt="MCST Parent-Teacher Organization">
+                            </div>
                             <h5 class="card-title">Luma Hosting Inc.</h5>
-                        </a>
-                    </div>
-                    <div class="sponsor">
-                        <a class="card text-bg-light h-100 d-block text-decoration-none" href="https://mcvts.membershiptoolkit.com/" target="_blank">
-                            <img src="img/sponsors/MCVTEA.png" class="card-img-top mb-2" alt="Morris County Vocational Technical Education Association">
-                            <h5 class="card-title">Morris County Vocational Technical Education Association</h5>
                         </a>
                     </div>
                 </div>
@@ -453,9 +464,10 @@
     
 
         <!-- The footer at the bottom of the site -->
-        <footer>
+        <footer class="flex-grow-1">
             <div class="container py-5 text-center">
-                <h6>hackMCST IX 2024</h6>
+                <h6 class="mb-0">hackMCST IX 2024</h6>
+                <small class="d-block mb-1"><a href="conduct.html" class="link-body-emphasis">Code of Conduct</a></small>
                 <a href="https://instagram.com/hackmcst" target="_blank" class="link-light mx-1 text-decoration-none">
                     <!-- The instagram logo -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
@@ -472,7 +484,7 @@
             </div>
         </footer>
         <!-- The side menu, or "offcanvas" as bootstrap calls it. -->
-        <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="menu" aria-labelledby="meunLabel">
+        <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="menu" aria-labelledby="menuLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="menuLabel">hackMCST IX</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -493,6 +505,7 @@
                     <a href="#" class="list-group-item list-group-item-action" target="_blank">Register</a>
                 </div>
                 <div class="text-center mt-1">
+                    <small class="d-block mb-1"><a href="conduct.html" class="link-body-emphasis">Code of Conduct</a></small>
                     <a href="https://instagram.com/hackmcst" target="_blank" class="link-light mx-1 text-decoration-none">
                         <!-- The instagram logo -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
