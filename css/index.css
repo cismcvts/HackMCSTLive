@@ -53,6 +53,10 @@
     --white: #ffffff;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: "Ubuntu", sans-serif;
 }
@@ -75,7 +79,7 @@ body {
 
 #home {
     padding-top: 9rem;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 #date {

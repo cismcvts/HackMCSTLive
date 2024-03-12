@@ -51,7 +51,7 @@
         <!-- CSS code for the website -->
         <link rel="stylesheet" href="css/index.css">
     </head>
-    <body>
+    <body class="d-flex flex-column">
         <!-- This is the top navigation bar -->
         <nav class="navbar position-fixed top-0 w-100" id="navbar">
             <div class="container">
@@ -295,6 +295,18 @@
                             </div>
                         </div>
                     </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-11" aria-expanded="false" aria-controls="faq-11">
+                                What is the Code of Conduct?
+                            </button>
+                        </h2>
+                        <div id="faq-11" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+                            <div class="accordion-body">
+                                <a href="conduct.html">Click here</a> to see the hackMCST IX Code of Conduct. All attendees are expected to adhere to the Code of Conduct for the entire duration of the event.
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <small class="text-center mt-3 d-block">If you have any other questions, feel free to contact us at <a href="mailto:cis@mcvts.org" target="_blank">cis@mcvts.org</a>, and we will be glad to answer.</small>
             </div>
@@ -449,9 +461,10 @@
     
 
         <!-- The footer at the bottom of the site -->
-        <footer>
+        <footer class="flex-grow-1">
             <div class="container py-5 text-center">
-                <h6>hackMCST IX 2024</h6>
+                <h6 class="mb-0">hackMCST IX 2024</h6>
+                <small class="d-block mb-1"><a href="conduct.html" class="link-body-emphasis">Code of Conduct</a></small>
                 <a href="https://instagram.com/hackmcst" target="_blank" class="link-light mx-1 text-decoration-none">
                     <!-- The instagram logo -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
@@ -468,7 +481,7 @@
             </div>
         </footer>
         <!-- The side menu, or "offcanvas" as bootstrap calls it. -->
-        <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="menu" aria-labelledby="meunLabel">
+        <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="menu" aria-labelledby="menuLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="menuLabel">hackMCST IX</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -489,6 +502,7 @@
                     <a href="#" class="list-group-item list-group-item-action" target="_blank">Register</a>
                 </div>
                 <div class="text-center mt-1">
+                    <small class="d-block mb-1"><a href="conduct.html" class="link-body-emphasis">Code of Conduct</a></small>
                     <a href="https://instagram.com/hackmcst" target="_blank" class="link-light mx-1 text-decoration-none">
                         <!-- The instagram logo -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
