@@ -39,7 +39,7 @@
                     <span class="d-none d-sm-inline">hackMCST IX</span>
                 </a>
                 <div class="d-flex align-items-baseline gap-2">
-                    <a class="btn btn-outline-light font-monospace" id="sign-up-navbar" target="_blank" href="https://mcvts.jumbula.com/Hackathon/HackathonIX" role="button">Register</a>
+                    <a class="btn btn-outline-light font-monospace" id="sign-up-navbar" target="_blank" aria-disabled="true" data-bs-toggle="tooltip" title="Thank you for your continued interest! Unfortunately, registration is currently full. We hope you can make it next year!" data-bs-placement="bottom" role="button">Register</a>
                     <button class="btn btn-outline-light" type="button" aria-label="Toggle navigation" data-bs-toggle="offcanvas" data-bs-target="#menu" aria-controls="menu">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -80,7 +80,7 @@
                     <a href="index.html#faq" class="list-group-item list-group-item-action">FAQs</a>
                     <a href="index.html#testimonials" class="list-group-item list-group-item-action">Testimonials</a>
                     <a href="index.html#sponsors" class="list-group-item list-group-item-action">Sponsors</a>
-                    <a href="https://mcvts.jumbula.com/Hackathon/HackathonIX" class="list-group-item list-group-item-action" target="_blank">Register</a>
+                    <a aria-disabled="true" data-bs-toggle="tooltip" title="Thank you for your continued interest! Unfortunately, registration is currently full. We hope you can make it next year!" data-bs-placement="bottom" class="list-group-item list-group-item-action" target="_blank">Register</a>
                 </div>
                 <div class="text-center mt-1">
                     <small class="d-block mb-1"><a href="#" class="link-body-emphasis" data-bs-dismiss="offcanvas">Code of Conduct</a></small>
@@ -93,5 +93,6 @@
             </div>
         </div>
         <script src="js/bootstrap.bundle.min.js"></script>
+        <script>for (const e of document.querySelectorAll('[data-bs-toggle="tooltip"]')) new bootstrap.Tooltip(e, {trigger: "click hover focus"});</script>
     </body>
 </html>

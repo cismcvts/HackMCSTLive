@@ -8,6 +8,8 @@ const signUpNavbar = document.querySelector("#sign-up-navbar");
 // The Bootstrap offcanvas object
 const offcanvas = new bootstrap.Offcanvas(document.querySelector("#menu"));
 
+for (const e of document.querySelectorAll('[data-bs-toggle="tooltip"]')) new bootstrap.Tooltip(e, {trigger: "click hover focus"});
+
 // Pull out the original heading text before we overwrite it.
 const headingTextContent = headingText.innerText;
 // The time to start rendering the text from, with a 1-second delay.
@@ -22,10 +24,6 @@ function frame() {
     // Fades in the ".scroll-fade" elements as the page scrolls down
     for (const e of document.querySelectorAll(".scroll-fade")) e.style.opacity = `${scrollY / innerHeight}`;
     requestAnimationFrame(frame);
-}
-
-function registrationClosed(){
-    alert("Registration Closed, attendees at capacity");
 }
 
 // Loop through each ".menu-link" and add a listener that closes the menu when it is clicked
