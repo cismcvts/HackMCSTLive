@@ -8,8 +8,6 @@ const signUpNavbar = document.querySelector("#sign-up-navbar");
 // The Bootstrap offcanvas object
 const offcanvas = new bootstrap.Offcanvas(document.querySelector("#menu"));
 
-for (const e of document.querySelectorAll('[data-bs-toggle="tooltip"]')) new bootstrap.Tooltip(e, {trigger: "click hover focus"});
-
 // Pull out the original heading text before we overwrite it.
 const headingTextContent = headingText.innerText;
 // The time to start rendering the text from, with a 1-second delay.
