@@ -24,10 +24,6 @@ function frame() {
     requestAnimationFrame(frame);
 }
 
-function registrationClosed(){
-    alert("Registration Closed, attendees at capacity");
-}
-
 // Loop through each ".menu-link" and add a listener that closes the menu when it is clicked
 for (const e of document.querySelectorAll(".menu-link")) e.addEventListener("click", offcanvas.hide.bind(offcanvas));
 requestAnimationFrame(frame);

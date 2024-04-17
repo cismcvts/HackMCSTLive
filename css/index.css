@@ -51,6 +51,8 @@
 :root {
     --red: #ef001b;
     --white: #ffffff;
+    --bs-font-sans-serif: "Ubuntu", sans-serif;
+    --bs-font-monospace: "Ubuntu Mono", monospace;
 }
 
 html, body {
@@ -59,6 +61,11 @@ html, body {
 
 body {
     font-family: "Ubuntu", sans-serif;
+}
+
+a {
+    cursor: pointer;
+    user-select: none;
 }
 
 #home-bg {
