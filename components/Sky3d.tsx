@@ -6,11 +6,11 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
 
 function Sky3d() {
+  gsap.registerPlugin(ScrollTrigger);
+
   const canvasRef = useRef(null);
-  let lastScroll = 0;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -41,22 +41,26 @@ function Sky3d() {
       (error) => console.error("Error loading GLTF model:", error)
     );
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: canvas,
-        start: "top top",
-        end: "bottom bottom",
-        scrub: true,
-        onUpdate: (self) => {
-          const scrollDirection = self.direction === 1 ? "down" : "up";
-          if (scrollDirection === "down" && self.progress > lastScroll) {
-            camera.position.z = 3 + 12 * self.progress;
-            console.log("scrolled down")
-          }
-          lastScroll = self.progress;
-        },
-      },
+    var tl = gsap.timeline({
+      repeat: Infinity,
+      yoyo: true,
     });
+    tl.to(camera.position, {
+      z: -250,
+      y: -50,
+      x: -50,
+      duration: 50,
+      ease: "none",
+      // scrollTrigger: {
+      //   trigger: canvas,
+      //   start: "top top",
+      //   end: "+=15000",
+      //   scrub: true,
+      // },
+    })
+    tl.to(camera, {
+      // rotateX: 90,
+    })
 
     const animate = () => {
       requestAnimationFrame(animate);
