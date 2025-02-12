@@ -89,10 +89,14 @@ html, body {
     font-weight:900;
     font-style: normal;
   }
-  
   .herotext{
     font-family:"SFPRODISPLAYMEDIUM";
     font-size:250px;
     color: black;
-    
+  }
+
+  .info1txt{
+    font-family:"SFPRODISPLAYMEDIUM";
+    font-size:50px;
+    color: black;
   }

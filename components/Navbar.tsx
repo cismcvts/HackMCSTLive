@@ -27,7 +27,7 @@ export function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 
   return (
-    <nav className="relative flex items-center justify-between bg-black px-6 py-4 shadow-lg">
+    <nav className="relative flex items-center justify-between bg-white px-6 py-4 shadow-lg">
       {/* Logo */}
       <div className="flex items-center">
         {/* <div className="mr-4 h-10 w-10 rounded-full bg-gradient-to-br from-white via-red-400 to-black shadow-inner" /> */}

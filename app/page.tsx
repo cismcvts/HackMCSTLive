@@ -6,7 +6,9 @@ import GlowButton from "@/components/GlowButton";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
+import Info1 from "@/components/info1";
 gsap.registerPlugin(ScrollTrigger);
+
 
 export default function Home() {
   useGSAP(() => {
@@ -38,7 +40,6 @@ export default function Home() {
       color: "white",
       duration: 1,
     })
-
   }, []);
 
   return (
@@ -49,18 +50,10 @@ export default function Home() {
       <div className="fixed top-0 left-0 w-full z-10">
         <Navbar />
       </div>
-      <div className="absolute inset-x-0 bottom-5 z-10 px-4 d-flex justify-content-center align-items-center">
-        <div className="text-center">
-          <h1 className="herotext opacity-0 text-white font-custom">
-            Make the <span className="mx-3">Next</span> <span className="mx-3 bg-black bigtxt opacity-0 rounded-xl ">Big</span> Thing.
-          </h1>
-        </div>
 
-        <div className="">
-          <GlowButton />
-        </div>
 
-      </div>
+      <Info1></Info1>
+
     </div>
   );
 }
