@@ -49,14 +49,13 @@ function Sky3d() {
       z: -250,
       y: -50,
       x: -50,
-      duration: 50,
       ease: "none",
-      // scrollTrigger: {
-      //   trigger: canvas,
-      //   start: "top top",
-      //   end: "+=15000",
-      //   scrub: true,
-      // },
+      scrollTrigger: {
+        trigger: canvas,
+        start: "top top",
+        end: "+=15000",
+        scrub: true,
+      },
     })
     tl.to(camera, {
       // rotateX: 90,
