@@ -5,6 +5,7 @@ import Sky3d from "@/components/Sky3d"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
+import Info1 from "./info1"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -31,11 +32,12 @@ export default function Hero() {
     const sections = gsap.utils.toArray<HTMLElement>(".content-section")
     sections.forEach((section, index) => {
       gsap.set(section, { opacity: 0, y: 100 })
+      
       ScrollTrigger.create({
         trigger: section,
         start: "top 80%",
         end: "bottom 20%",
-        markers: false, 
+        markers: false,
         toggleActions: "play none none reverse",
         animation: gsap.to(section, {
           opacity: 1,
@@ -44,13 +46,36 @@ export default function Hero() {
           ease: "power2.out"
         })
       })
+
+      if (index > 0) {
+        ScrollTrigger.create({
+          trigger: section,
+          start: "top center",
+          end: "bottom center",
+          markers: false,
+          onEnter: () => {
+            gsap.to(sections[index - 1], {
+              opacity: 0,
+              duration: 0.5,
+              y: -50
+            })
+          },
+          onLeaveBack: () => {
+            gsap.to(sections[index - 1], {
+              opacity: 1,
+              duration: 0.5,
+              y: 0
+            })
+          }
+        })
+      }
     })
 
     ScrollTrigger.create({
-      trigger: ".content-section",
+      trigger: sections[0],
       start: "top center",
-      end: "+=300",
-      markers: false, 
+      end: "bottom center",
+      markers: false,
       onEnter: () => {
         gsap.to(".hero", { opacity: 0, duration: 0.5 })
       },
@@ -83,7 +108,12 @@ export default function Hero() {
           <p className="text-xl mb-4">Join us for an exciting hackathon experience!</p>
         </div>
       </div>
-      
+
+      <div className="content-section relative z-10 bg-transparent min-h-screen flex items-center justify-center w-full">
+        <div className="container mx-auto text-center px-4">
+          <Info1 />
+        </div>
+      </div>
     </div>
   )
 }
