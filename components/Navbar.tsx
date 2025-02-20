@@ -27,11 +27,11 @@ export function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 
   return (
-    <nav className="relative flex items-center justify-between bg-white px-6 py-4 shadow-lg">
+    <nav className="relative flex items-center justify-between bg-black px-6 py-4 shadow-lg">
       {/* Logo */}
       <div className="flex items-center">
         {/* <div className="mr-4 h-10 w-10 rounded-full bg-gradient-to-br from-white via-red-400 to-black shadow-inner" /> */}
-        <span className="text-xl font-bold text-white">HMCSTX</span>
+        <span className="text-xl font-bold text-white"></span>
       </div>
 
       {/*
@@ -49,13 +49,13 @@ export function Navbar() {
           <input
             type="text"
             placeholder="Search..."
-            className="rounded-full bg-white py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="rounded-full bg-white py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-red-400"
           />
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white" />
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-green-500 via-purple-400 to-blue-500" />
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 via-red-400 to-purple-500" />
     </nav>
   )
 }

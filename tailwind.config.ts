@@ -10,6 +10,10 @@ export default {
   theme: {
   	extend: {
   		colors: {
+			HMXRed1:"#ef001c",
+			HMXBarnRed: "#dc3545",
+			EerieBlk: "#212529",
+			Silver: "#c0c0c0",
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
