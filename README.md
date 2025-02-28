@@ -2,6 +2,11 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+
+
+**ALSO "npm install" otherwise the libraries needed aren't gonna download and the site wont work**
+
+
 First, run the development server:
 
 ```bash
