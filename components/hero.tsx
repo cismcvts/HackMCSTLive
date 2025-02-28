@@ -1,10 +1,14 @@
 import { useRef } from "react"
 import Sky3d from "@/components/Sky3d"
+import Spdl from "./Spline"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
 import Info1 from "./info1"
 import Info2 from "./info2"
+import Info3 from "./info3"
+import Info4 from "./info4"
+
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -84,6 +88,44 @@ export default function Hero() {
       }
     })
 
+    const spadeSection = document.querySelector(".content-section-spade")
+    if (spadeSection) {
+      gsap.set(spadeSection, { 
+        opacity: 0, 
+        x: '100vw' 
+      })
+
+      ScrollTrigger.create({
+        trigger: spadeSection,
+        start: "top bottom", 
+        end: "bottom top", 
+        markers: false,
+        scrub: 1, 
+        pin: false, // Don't pin the section
+        anticipatePin: 1, 
+        onLeave: () => {
+          gsap.set(spadeSection, { opacity: 1, x: 0 })
+        },
+        onUpdate: (self) => {
+          const progress = self.progress;
+          let xPos, opacity;
+          
+          if (progress < 0.5) {
+            xPos = gsap.utils.interpolate(100, 0, progress * 2);
+            opacity = gsap.utils.interpolate(0, 1, progress * 2);
+          } else {
+            xPos = gsap.utils.interpolate(0, -100, (progress - 0.5) * 2);
+            opacity = gsap.utils.interpolate(1, 0, (progress - 0.5) * 2);
+          }
+          
+          gsap.set(spadeSection, { 
+            x: `${xPos}vw`, 
+            opacity: opacity
+          });
+        }
+      })
+    }
+
     ScrollTrigger.create({
       trigger: sections[0],
       start: "top center",
@@ -125,22 +167,29 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className=" content-section relative z-10 bg-transparent min-h-screen flex items-center justify-center w-full">
-        <div className="container mx-auto text-center px-4">
-          <h2 className="text-4xl font-bold mb-4">Welcome to HackMCST X</h2>
-          <p className="text-xl mb-4">Join us for an exciting hackathon experience!</p>
-        </div>
+      <div className=" content-section relative z-10 bg-transparent min-h-screen flex items-center justify-center w-full -mt-12 -mb-16">
+      <br></br>
       </div>
 
-      <div className=" content-section relative z-10 bg-transparent min-h-screen flex items-center justify-center w-full">
+      <div className=" content-section relative z-10 bg-transparent min-h-screen flex items-center justify-center w-full -mt-16 -mb-16" >
         <div className="container mx-auto text-center px-4">
           <Info1 />
         </div>
       </div>
 
-      <div className=" content-section relative z-10 bg-transparent min-h-screen flex items-center justify-center w-full">
+      <div className=" content-section relative z-10 bg-transparent min-h-screen flex items-center justify-center w-full -mt-16 -mb-16">
+        <div className="container mx-auto text-center px-4">
+          <Info3 />
+        </div>
+      </div>
+      <div className=" content-section-spade relative z-10 bg-transparent min-h-screen flex items-center justify-center w-full -mt-16 -mb-16">
         <div className="container mx-auto text-center px-4">
           <Info2 />
+        </div>
+      </div>
+      <div className=" content-section-spade relative z-10 bg-transparent min-h-screen flex items-center justify-center w-full -mt-16 -mb-16">
+        <div className="container mx-auto text-center px-4">
+          <Info4 />
         </div>
       </div>
     </div>

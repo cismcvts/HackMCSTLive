@@ -1,61 +1,104 @@
 "use client"
 
-import type React from "react"
 import { useState } from "react"
-import { Search, User, ChevronDown } from "lucide-react"
-import { motion } from "framer-motion"
+import { Menu, X } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
-const NavItem = ({ children }: { children: React.ReactNode }) => (
-  <motion.li
-    className="relative mx-2 cursor-pointer font-medium text-gray-700 transition-colors hover:text-blue-600"
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-  >
-    <span className="relative">
-      {children}
-      <motion.span
-        className="absolute bottom-0 left-0 h-0.5 w-full bg-blue-600"
-        initial={{ scaleX: 0 }}
-        whileHover={{ scaleX: 1 }}
-        transition={{ duration: 0.2 }}
-      />
-    </span>
-  </motion.li>
-)
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false)
 
-export function Navbar() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const navItems = [
+    { name: "Home", href: "#" },
+    { name: "About", href: "#" },
+    { name: "Schedule", href: "#" },
+    { name: "Workshops", href: "#" },
+    { name: "Register", href: "#", isButton: true },
+  ]
 
   return (
-    <nav className="relative flex items-center justify-between bg-black px-6 py-4 shadow-lg">
-      {/* Logo */}
-      <div className="flex items-center">
-        {/* <div className="mr-4 h-10 w-10 rounded-full bg-gradient-to-br from-white via-red-400 to-black shadow-inner" /> */}
-        <span className="text-xl font-bold text-white"></span>
-      </div>
+    <nav className="fixed top-0 w-full z-50">
+      {/* Red gradient background with blur */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-red-950/20 to-black backdrop-blur-sm" />
 
-      {/*
-      <ul className="flex items-center space-x-1">
-        <NavItem>Test</NavItem>
-        <NavItem>Products</NavItem>
-        <NavItem>Services</NavItem>
-        <NavItem>About</NavItem>
-        <NavItem>Contact</NavItem>
-      </ul> */}
+      {/* Red glow effects */}
+      <div className="absolute -top-20 left-1/4 w-32 h-32 bg-red-600/20 rounded-full blur-3xl" />
+      <div className="absolute -top-20 right-1/4 w-32 h-32 bg-red-800/20 rounded-full blur-3xl" />
 
-      {/* ETC acc and */}
-      <div className="flex items-center space-x-4">
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="rounded-full bg-white py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-red-400"
-          />
-          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white" />
+      <div className="relative mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <a href="#" className="flex items-center">
+              <span className="text-2xl font-bold bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">
+                hackMCST
+              </span>
+            </a>
+          </div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex md:items-center md:space-x-8">
+            {navItems.map((item) =>
+              item.isButton ? (
+                <Button
+                  key={item.name}
+                  variant="outline"
+                  className="bg-red-600/10 border-red-500/50 text-red-500 hover:bg-red-600/20 hover:text-red-400 transition-colors"
+                >
+                  {item.name}
+                </Button>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-gray-300 hover:text-red-400 px-3 py-2 text-sm font-medium transition-colors relative group"
+                >
+                  {item.name}
+                  <span className="absolute inset-x-0 -bottom-0.5 h-px bg-gradient-to-r from-red-500/0 via-red-500/70 to-red-500/0 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              ),
+            )}
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="flex md:hidden">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-gray-300 hover:text-red-400"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              <span className="sr-only">Open main menu</span>
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
+          </div>
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 via-red-400 to-purple-500" />
+      {/* Mobile menu */}
+      <div className={`${isOpen ? "block" : "hidden"} md:hidden relative`}>
+        <div className="absolute inset-0 bg-gradient-to-b from-black to-red-950/30 backdrop-blur-sm -z-10" />
+        <div className="px-4 pt-2 pb-3 space-y-1">
+          {navItems.map((item) =>
+            item.isButton ? (
+              <Button
+                key={item.name}
+                variant="outline"
+                className="w-full mt-4 bg-red-600/10 border-red-500/50 text-red-500 hover:bg-red-600/20 hover:text-red-400 transition-colors"
+              >
+                {item.name}
+              </Button>
+            ) : (
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-gray-300 hover:text-red-400 hover:bg-red-900/20 block px-3 py-2 text-base font-medium rounded-md transition-colors"
+              >
+                {item.name}
+              </a>
+            ),
+          )}
+        </div>
+      </div>
     </nav>
   )
 }
