@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Diamond, Award, Medal } from "lucide-react"
 
-interface SponsorTier {
+interface SponsorList {
   name: string
   icon: typeof Diamond
   description: string
@@ -17,9 +17,9 @@ interface SponsorTier {
 export default function Sponsors() {
   const [hoveredSponsor, setHoveredSponsor] = useState<string | null>(null)
 
-  const sponsorTiers: SponsorTier[] = [
+  const sponsorTiers: SponsorList[] = [
     {
-      name: "Silver Sponsors",
+      name: "Sponsors",
       icon: Medal,
       description: "Valued contributors to our community",
       sponsors: [
@@ -68,17 +68,12 @@ export default function Sponsors() {
         <div className="absolute left-1/2 -bottom-4 w-32 h-1 bg-gradient-to-r from-red-600/0 via-red-600 to-red-600/0 transform -translate-x-1/2" />
       </div>
 
-      {/* Sponsor Tiers */}
       <div className="space-y-16">
         {sponsorTiers.map((tier) => (
           <div key={tier.name} className="relative">
-            {/* Tier Header */}
             <div className="flex items-center justify-center gap-3 mb-8">
-              <tier.icon className="w-6 h-6 text-red-500" />
               <h3 className="text-2xl font-semibold text-white"></h3>
             </div>
-
-            {/* Sponsors Grid */}
             <div
               className={`grid gap-8 justify-items-center ${
                 tier.name === "Platinum Sponsors"
@@ -96,13 +91,9 @@ export default function Sponsors() {
                   onMouseEnter={() => setHoveredSponsor(sponsor.name)}
                   onMouseLeave={() => setHoveredSponsor(null)}
                 >
-                  {/* Card Background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-red-950/30 to-black rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                  {/* Glow Effect */}
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-red-500 to-red-800 rounded-xl opacity-0 group-hover:opacity-20 blur transition-opacity" />
-
-                  {/* Content */}
                   <div className="relative bg-black/50 backdrop-blur-sm border border-red-500/10 rounded-xl p-6 transition-colors group-hover:border-red-500/30">
                     <img
                       src={sponsor.logo || "/placeholder.svg"}

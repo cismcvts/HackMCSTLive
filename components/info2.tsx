@@ -13,6 +13,10 @@ function Info2() {
 
   return (
     <div className='bg-black text-white info1txt fontarchytype text-center overheadDv d-flex flex-column justify-content-center align-items-center my-4'>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <p>A Look in the Past</p>
       <p className="text-base pt-1 pb-4 text-balance">
         Check out this brief overview of last year's hackMCST VIII, featuring an ambitious project.

@@ -8,10 +8,10 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   const navItems = [
-    { name: "Home", href: "#" },
     { name: "About", href: "#" },
-    { name: "Schedule", href: "#" },
-    { name: "Workshops", href: "#" },
+    { name: "Testimonials", href: "#" },
+    { name: "FAQ", href: "#" },
+    { name: "Sponsors", href: "#" },
     { name: "Register", href: "#", isButton: true },
   ]
 
