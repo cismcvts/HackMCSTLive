@@ -111,7 +111,6 @@ export default function Info4() {
               <Card className="border-0 bg-transparent shadow-none">
                 <CardContent className="p-6 md:p-10">
                   <div className="relative">
-                    {/* Red lighting effect */}
                     <div className="absolute -top-4 -left-4 w-20 h-20 bg-red-600/30 rounded-full blur-xl" />
                     <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-red-700/20 rounded-full blur-xl" />
 

@@ -12,7 +12,7 @@ function Info2() {
   })
 
   return (
-    <div className='bg-white info1txt text-center overheadDv d-flex flex-column justify-content-center align-items-center my-4'>
+    <div className='bg-black text-white info1txt fontarchytype text-center overheadDv d-flex flex-column justify-content-center align-items-center my-4'>
       <p>A Look in the Past</p>
       <p className="text-base pt-1 pb-4 text-balance">
         Check out this brief overview of last year's hackMCST VIII, featuring an ambitious project.

@@ -73,3 +73,14 @@
     @apply bg-background text-foreground;
   }
 }
+
+@font-face {
+  font-family: 'SFPRODISPLAYMEDIUM';
+  src: url('/fonts/SFPRODISPLAYMEDIUM.OTF') format('opentype');
+  font-weight:900;
+  font-style: normal;
+}
+
+.fontarchytype{
+  font-family:"SFPRODISPLAYMEDIUM";
+}

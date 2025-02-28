@@ -17,25 +17,22 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 w-full z-50">
-      {/* Red gradient background with blur */}
       <div className="absolute inset-0 bg-gradient-to-r from-black via-red-950/20 to-black backdrop-blur-sm" />
 
-      {/* Red glow effects */}
       <div className="absolute -top-20 left-1/4 w-32 h-32 bg-red-600/20 rounded-full blur-3xl" />
       <div className="absolute -top-20 right-1/4 w-32 h-32 bg-red-800/20 rounded-full blur-3xl" />
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo goes smrh here*/}
           <div className="flex-shrink-0">
             <a href="#" className="flex items-center">
               <span className="text-2xl font-bold bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">
-                hackMCST
+                
               </span>
             </a>
           </div>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
             {navItems.map((item) =>
               item.isButton ? (
@@ -59,7 +56,6 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Mobile menu button */}
           <div className="flex md:hidden">
             <Button
               variant="ghost"
@@ -74,7 +70,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       <div className={`${isOpen ? "block" : "hidden"} md:hidden relative`}>
         <div className="absolute inset-0 bg-gradient-to-b from-black to-red-950/30 backdrop-blur-sm -z-10" />
         <div className="px-4 pt-2 pb-3 space-y-1">

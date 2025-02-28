@@ -69,7 +69,7 @@ export default function Info3() {
   ]
 
   return (
-    <section id="faq" className="py-16 px-4 max-w-4xl mx-auto">
+    <section id="faq" className="py-16 px-4 max-w-4xl mx-auto text-white fontarchytype">
       <h1 className="text-3xl font-bold text-center mb-10">Frequently Asked Questions</h1>
 
       <Accordion type="single" collapsible className="w-full">
