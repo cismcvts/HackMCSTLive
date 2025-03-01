@@ -29,18 +29,18 @@ export default function Sky3d() {
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
 
-    const loader = new GLTFLoader();
-    loader.load(
-      "/cartoonsky/scene.gltf",
-      (gltf) => {
-        const model = gltf.scene;
-        model.position.set(0, 0, 0);
-        model.scale.set(1, 1, 1);
-        scene.add(model);
-      },
-      undefined,
-      (error) => console.error("Error loading GLTF model:", error)
-    );
+    // const loader = new GLTFLoader();
+    // loader.load(
+    //   "/cartoonsky/scene.gltf",
+    //   (gltf) => {
+    //     const model = gltf.scene;
+    //     model.position.set(0, 0, 0);
+    //     model.scale.set(1, 1, 1);
+    //     scene.add(model);
+    //   },
+    //   undefined,
+    //   (error) => console.error("Error loading GLTF model:", error)
+    // );
 
     const tl = gsap.timeline({ repeat: Infinity, yoyo: true });
     tl.to(camera.position, {

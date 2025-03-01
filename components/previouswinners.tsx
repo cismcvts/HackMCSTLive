@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import Carousel from "../components/Caro2" 
+import Carousel from "../components/Caro2"
 
 const winners = [
   {
@@ -49,10 +49,16 @@ export default function PreviousWinners() {
   return (
     <section id="previouswinners" className="py-16 text-white text-center bg-black">
       <div className="container mx-auto relative">
-        <h1 className="text-3xl font-bold mb-6">Previous Winners</h1>
-        <div className="w-full max-w-4xl mx-auto">
+      <div className="text-center mb-16 relative">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-red-500 to-red-200 bg-clip-text text-transparent">
+          Previous Winners
+        </h2>
+        <p className="text-gray-400 max-w-2xl mx-auto">
+          HackMCST IX
+        </p>
+        <div className="absolute left-1/2 -bottom-4 w-32 h-1 bg-gradient-to-r from-red-600/0 via-red-600 to-red-600/0 transform -translate-x-1/2" />
+      </div>        <div className="w-full max-w-4xl mx-auto">
           <p className="text-left mb-2">
-        <u>hackMCST IX Winners</u>
         </p>
         <Carousel slides={winners} />
       </div>
