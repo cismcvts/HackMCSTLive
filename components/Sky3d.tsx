@@ -6,14 +6,14 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-
-function Sky3d() {
+export default function Sky3d() {
   gsap.registerPlugin(ScrollTrigger);
 
-  const canvasRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
+    if (!canvas) return; 
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
@@ -23,6 +23,7 @@ function Sky3d() {
       1000
     );
     camera.position.set(0, 0, 3);
+
 
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
     renderer.setPixelRatio(window.devicePixelRatio);
@@ -41,10 +42,7 @@ function Sky3d() {
       (error) => console.error("Error loading GLTF model:", error)
     );
 
-    var tl = gsap.timeline({
-      repeat: Infinity,
-      yoyo: true,
-    });
+    const tl = gsap.timeline({ repeat: Infinity, yoyo: true });
     tl.to(camera.position, {
       z: -250,
       y: -50,
@@ -56,10 +54,7 @@ function Sky3d() {
         end: "+=15000",
         scrub: true,
       },
-    })
-    tl.to(camera, {
-      // rotateX: 90,
-    })
+    });
 
     const animate = () => {
       requestAnimationFrame(animate);
@@ -80,7 +75,11 @@ function Sky3d() {
     };
   }, []);
 
-  return <canvas ref={canvasRef} />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="fixed top-0 left-0 w-full h-full -z-10"
+      {...({ crossOrigin: "anonymous" } as any)}
+    />
+  );
 }
-
-export default Sky3d;

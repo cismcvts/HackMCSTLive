@@ -7,6 +7,7 @@ import Info1 from "./info1"
 import Info2 from "./info2"
 import Info3 from "./info3"
 import Info4 from "./info4"
+import PreviousWinners from "./previouswinners"
 import Sponsors from "./sponosrs"
 
 gsap.registerPlugin(ScrollTrigger)
@@ -171,6 +172,10 @@ export default function Hero() {
           <Info3 />
         </div>
       </div>
+
+      <div className="container mx-auto text-center px-4">
+      <PreviousWinners />
+    </div>
 
       <div className="content-section-spade relative z-10 bg-transparent min-h-screen flex items-center justify-center w-full -mt-16 -mb-16">
         <div className="container mx-auto text-center px-4">
