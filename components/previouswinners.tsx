@@ -48,10 +48,14 @@ const winners = [
 export default function PreviousWinners() {
   return (
     <section id="pastwinners" className="py-16 text-white text-center bg-black">
-      <div className="container mx-auto">
+      <div className="container mx-auto relative">
         <h1 className="text-3xl font-bold mb-6">Previous Winners</h1>
-        <h5 className="text-left"> <u>hackMCST IX Winners</u></h5>
+        <div className="w-full max-w-4xl mx-auto">
+          <p className="text-left mb-2">
+        <u>hackMCST IX Winners</u>
+        </p>
         <Carousel slides={winners} />
+      </div>
       </div>
     </section>
   )
