@@ -9,6 +9,7 @@ import Info3 from "./info3"
 import Info4 from "./info4"
 import PreviousWinners from "./previouswinners"
 import Sponsors from "./sponosrs"
+import Footer from "./footer"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -48,7 +49,7 @@ export default function Hero() {
       "-=1.5",
     )
 
-    const sections = gsap.utils.toArray<HTMLElement>(".content-section")
+    const sections = gsap.utils.toArray<HTMLElement>(".content-section, .content-section-spade")
     sections.forEach((section, index) => {
       gsap.set(section, { opacity: 0, y: 100 })
 
@@ -88,28 +89,6 @@ export default function Hero() {
           },
         })
       }
-    })
-
-    const spadeSections = gsap.utils.toArray<HTMLElement>(".content-section-spade")
-    spadeSections.forEach((section) => {
-      gsap.set(section, {
-        opacity: 0,
-        x: "100vw",
-      })
-
-      ScrollTrigger.create({
-        trigger: section,
-        start: "top center",
-        end: "bottom center",
-        markers: false,
-        toggleActions: "play reverse play reverse",
-        animation: gsap.timeline().to(section, {
-          x: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power2.out",
-        }),
-      })
     })
 
     ScrollTrigger.create({
@@ -173,28 +152,36 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="container mx-auto text-center px-4">
+      <div className="content-section-spade container mx-auto text-center px-4">
       <PreviousWinners />
     </div>
 
-      <div className="content-section-spade relative z-10 bg-transparent min-h-screen flex items-center justify-center w-full -mt-16 -mb-16">
+      <div className="content-section-spade relative z-10 bg-transparent flex items-center justify-center w-full -mt-16 -mb-16">
         <div className="container mx-auto text-center px-4">
           <Info2 />
         </div>
       </div>
 
-      <div className="content-section-spade relative z-10 bg-transparent min-h-screen flex items-center justify-center w-full -mt-16 -mb-16">
+      <div className="content-section relative z-10 bg-transparent min-h-screen flex items-center justify-center w-full -mt-16 -mb-16">
         <div className="container mx-auto text-center px-4">
           <Info4 />
         </div>
       </div>
 
-      <div className="content-section relative z-10 bg-transparent min-h-screen flex items-center justify-center w-full -mt-16 -mb-16">
+      <div className="content-section relative bg-transparent flex items-center justify-center w-full">
         <div className="container mx-auto text-center px-4">
           <Sponsors />
         </div>
       </div>
+
+      <Footer />
+
     </div>
+
+
+    
   )
+
+  
 }
 

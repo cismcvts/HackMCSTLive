@@ -17,17 +17,17 @@ export default function Info3() {
     {
       question: "How much does it cost?",
       answer:
-        "hackMCST IX is 100% free! That's one of the best things about hackathons: there's nothing to lose! Lunch and dinner are provided at no cost, and each hacker will receive a free hackMCST IX T-shirt!",
+        "hackMCST X is 100% free! That's one of the best things about hackathons: there's nothing to lose! Lunch and dinner are provided at no cost, and each hacker will receive a free hackMCST X T-shirt!",
     },
     {
       question: "How long is the event?",
       answer:
-        "hackMCST IX is a 12-hour event at Morris County School of Technology. The event starts at 9 AM and ends at 9 PM, with check-in at 8 AM, giving each team plenty of time to create an amazing hack!",
+        "hackMCST X is a 12-hour event at Morris County School of Technology. The event starts at 9 AM and ends at 9 PM, with check-in at 8 AM, giving each team plenty of time to create an amazing hack!",
     },
     {
       question: "What if I have never been to a hackathon before?",
       answer:
-        "You've come to the right place! hackMCST IX is the perfect place to get your feet on the ground and dip your toes in the water. There is something for every skills level at hackMCST!",
+        "You've come to the right place! hackMCST X is the perfect place to get your feet on the ground and dip your toes in the water. There is something for every skills level at hackMCST!",
     },
     {
       question: "Do I need to already have a team beforehand?",
@@ -58,10 +58,10 @@ export default function Info3() {
       question: "What is the Code of Conduct?",
       answer: (
         <span>
-          <a href="/conduct" className="text-primary hover:underline">
+          <a href="/code-of-conduct" className="text-primary hover:underline">
             Click here
           </a>{" "}
-          to see the hackMCST IX Code of Conduct. All attendees are expected to adhere to the Code of Conduct for the
+          to see the hackMCST X Code of Conduct. All attendees are expected to adhere to the Code of Conduct for the
           entire duration of the event.
         </span>
       ),
@@ -81,16 +81,17 @@ export default function Info3() {
         ))}
       </Accordion>
 
-      <div className="mt-8 text-center text-sm text-muted-foreground">
-        <p className="flex items-center justify-center gap-2">
-          <Mail className="h-4 w-4" />
-          If you have any other questions, feel free to contact us at{" "}
-          <a href="mailto:cis@mcvts.org" className="text-primary hover:underline">
-            cis@mcvts.org
-          </a>
-          , and we will be glad to answer.
-        </p>
-      </div>
+      <div className="mt-8 text-center text-sm text-muted-foreground px-4">
+      <p className="flex flex-wrap items-center justify-center gap-2 max-w-[90%] mx-auto">
+        <Mail className="h-4 w-4 flex-shrink-0" />
+        <span>If you have any other questions, feel free to contact us at</span> 
+        <a href="mailto:cis@mcvts.org" className="text-primary hover:underline whitespace-nowrap">
+          cis@mcvts.org,
+        </a> 
+        <span>and we will be glad to answer.</span>
+      </p>
+    </div>
+
     </section>
   )
 }

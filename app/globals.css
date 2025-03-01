@@ -84,3 +84,11 @@
 .fontarchytype{
   font-family:"SFPRODISPLAYMEDIUM";
 }
+
+html, body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+

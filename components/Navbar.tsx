@@ -1,19 +1,21 @@
 "use client"
 
+import { usePathname } from "next/navigation"
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname()
 
   const navItems = [
-    { name: "About", href: "#about" },
-    { name: "FAQ", href: "#faq" },
-    { name: "Previous Winners", href: "#previouswinners" },
-    { name: "Documentary", href: "#documentary" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "Sponsors", href: "#sponsors" },
+    { name: "About", href: pathname === "/" ? "#about" : "/#about" },
+    { name: "FAQ", href: pathname === "/" ? "#faq" : "/#faq"  },
+    { name: "Previous Winners", href: pathname === "/" ? "#previouswinners" : "/#previouswinners" },
+    { name: "Documentary", href: pathname === "/" ? "#documentary" : "/#documentary" },
+    { name: "Testimonials", href: pathname === "/" ? "#testimonials" : "/#testimonials" },
+    { name: "Sponsors", href: pathname === "/" ? "#sponsors" : "/#sponsors" }, 
     { name: "Register", href: "#", isButton: true },
   ]
 

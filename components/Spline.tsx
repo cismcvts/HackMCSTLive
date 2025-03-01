@@ -17,9 +17,9 @@ export default function CyberBackground({ className }: CyberBackgroundProps) {
     if (!ctx) return
 
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
+      canvas.width = document.documentElement.clientWidth;
+      canvas.height = window.innerHeight;
+    };
 
     resizeCanvas()
 

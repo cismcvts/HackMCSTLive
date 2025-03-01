@@ -57,7 +57,8 @@ export default function PreviousWinners() {
           HackMCST IX
         </p>
         <div className="absolute left-1/2 -bottom-4 w-32 h-1 bg-gradient-to-r from-red-600/0 via-red-600 to-red-600/0 transform -translate-x-1/2" />
-      </div>        <div className="w-full max-w-4xl mx-auto">
+      </div>        
+      <div className="w-full max-w-4xl mx-auto">
           <p className="text-left mb-2">
         </p>
         <Carousel slides={winners} />
