@@ -98,7 +98,7 @@ export default function Info4() {
   }, [nextSlide])
 
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 py-12 relative">
+    <div id="testimonials" className="w-full max-w-5xl mx-auto px-4 py-12 relative">
       <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 via-black/40 to-black/60 rounded-xl -z-10" />
 
       <div className="overflow-hidden relative">

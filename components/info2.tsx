@@ -12,7 +12,7 @@ function Info2() {
   })
 
   return (
-    <div className='bg-black text-white info1txt fontarchytype text-center overheadDv d-flex flex-column justify-content-center align-items-center my-4'>
+    <div id="documentary" className='bg-black text-white info1txt fontarchytype text-center overheadDv d-flex flex-column justify-content-center align-items-center my-4'>
       <br></br>
       <br></br>
       <br></br>
