@@ -116,7 +116,7 @@ export default function CyberBento() {
             <GraduationCap className="h-5 w-5 text-red-500" />
             <div>
               <h2 className="text-red-500 font-bold">Participants:</h2>
-              <p className="text-red-200/70 font-mono text-xs">Grades 6-12</p>
+              <p className="text-red-200/70 font-mono text-xs">Grades 7-12</p>
             </div>
           </div>
         </motion.div>
