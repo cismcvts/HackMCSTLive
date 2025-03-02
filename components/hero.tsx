@@ -1,5 +1,5 @@
 import { useRef } from "react"
-import Sky3d from "@/components/Sky3d"
+import CityModel from "./City"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
@@ -7,6 +7,7 @@ import Info1 from "./info1"
 import Info2 from "./info2"
 import Info3 from "./info3"
 import Info4 from "./info4"
+
 import PreviousWinners from "./previouswinners"
 import Sponsors from "./sponosrs"
 import Footer from "./footer"
@@ -48,6 +49,20 @@ export default function Hero() {
         ease: "power2.inOut",
       },
       "-=1.5",
+    )
+    
+    // Add animation for the 3D city model
+    heroTl.fromTo(
+      ".city-model-container",
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 1.5,
+        ease: "power2.inOut",
+      },
+      "-=2",
     )
 
     const sections = gsap.utils.toArray<HTMLElement>(".content-section, .content-section-spade")
@@ -99,9 +114,11 @@ export default function Hero() {
       markers: false,
       onEnter: () => {
         gsap.to(".hero", { opacity: 0, duration: 0.5 })
+        gsap.to(".city-model-container", { opacity: 0, duration: 0.5 }) // Hide 3D model on scroll
       },
       onLeaveBack: () => {
         gsap.to(".hero", { opacity: 1, duration: 0.5 })
+        gsap.to(".city-model-container", { opacity: 1, duration: 0.5 }) // Show 3D model when scrolling back up
       },
     })
 
@@ -112,11 +129,14 @@ export default function Hero() {
 
   return (
     <div ref={containerRef} className="relative w-full">
+      {/* 3D City Model - Rectangle at the top, with pointer-events-none to make it non-interactive */}
+      <div className="city-model-container fixed top-0 left-0 right-0 h-96 z-0 opacity-0 pointer-events-none">
+        <CityModel />
+      </div>
+
       <div className="hero opacity-0 h-screen sticky top-0 overflow-hidden w-full">
-        <div className="absolute inset-0 z-0">
-          <Sky3d />
-        </div>
-        <div className="absolute inset-0 z-30 flex flex-col items-center justify-center">
+        {/* Text container with higher z-index to appear over the 3D model */}
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
           <div className="relative w-full flex flex-col items-center">
             <h1
               className="herotext text-red-500 font-medium 
@@ -160,8 +180,8 @@ export default function Hero() {
       </div>
 
       <div className="content-section-spade container mx-auto text-center px-4">
-      <PreviousWinners />
-    </div>
+        <PreviousWinners />
+      </div>
 
       <div className="content-section-spade relative z-10 bg-transparent flex items-center justify-center w-full -mt-16 -mb-16">
         <div className="container mx-auto text-center px-4">
@@ -182,13 +202,6 @@ export default function Hero() {
       </div>
 
       <Footer />
-
     </div>
-
-
-    
   )
-
-  
 }
-
