@@ -63,7 +63,7 @@ export default function CyberBento() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  {timeLeft.hours}h 
+                  {" "}{timeLeft.hours}h 
                 </motion.span>
                 <motion.span
                   key={`minutes-${timeLeft.minutes}`}
@@ -71,7 +71,7 @@ export default function CyberBento() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  {timeLeft.minutes}m
+                  {" "}{timeLeft.minutes}m
                 </motion.span>
                 <motion.span
                   key={`seconds-${timeLeft.seconds}`}
@@ -79,7 +79,7 @@ export default function CyberBento() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  {timeLeft.seconds}s
+                  {" "}{timeLeft.seconds}s
                 </motion.span>
             </div>
           </div>
