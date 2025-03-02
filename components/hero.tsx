@@ -51,7 +51,6 @@ export default function Hero() {
       "-=1.5",
     )
     
-    // Add animation for the 3D city model
     heroTl.fromTo(
       ".city-model-container",
       {
@@ -114,11 +113,11 @@ export default function Hero() {
       markers: false,
       onEnter: () => {
         gsap.to(".hero", { opacity: 0, duration: 0.5 })
-        gsap.to(".city-model-container", { opacity: 0, duration: 0.5 }) // Hide 3D model on scroll
+        gsap.to(".city-model-container", { opacity: 0, duration: 0.5 }) 
       },
       onLeaveBack: () => {
         gsap.to(".hero", { opacity: 1, duration: 0.5 })
-        gsap.to(".city-model-container", { opacity: 1, duration: 0.5 }) // Show 3D model when scrolling back up
+        gsap.to(".city-model-container", { opacity: 1, duration: 0.5 })
       },
     })
 
@@ -129,13 +128,11 @@ export default function Hero() {
 
   return (
     <div ref={containerRef} className="relative w-full">
-      {/* 3D City Model - Rectangle at the top, with pointer-events-none to make it non-interactive */}
       <div className="city-model-container fixed top-0 left-0 right-0 h-96 z-0 opacity-0 pointer-events-none">
         <CityModel />
       </div>
 
       <div className="hero opacity-0 h-screen sticky top-0 overflow-hidden w-full">
-        {/* Text container with higher z-index to appear over the 3D model */}
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
           <div className="relative w-full flex flex-col items-center">
             <h1
