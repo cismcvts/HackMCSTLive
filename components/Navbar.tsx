@@ -10,6 +10,7 @@ export default function Navbar() {
   const pathname = usePathname()
 
   const navItems = [
+    { name: "Info", href: pathname === "/" ? "#info" : "/#info" },
     { name: "About", href: pathname === "/" ? "#about" : "/#about" },
     { name: "FAQ", href: pathname === "/" ? "#faq" : "/#faq"  },
     { name: "Previous Winners", href: pathname === "/" ? "#previouswinners" : "/#previouswinners" },

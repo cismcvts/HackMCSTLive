@@ -35,7 +35,7 @@ export default function CyberBento() {
 
   return (
     <div className="w-full max-w-6xl mx-auto p-4">
-      <div className="grid grid-cols-6 auto-rows-[120px] gap-4">
+      <div id="info" className="grid grid-cols-6 auto-rows-[120px] gap-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
