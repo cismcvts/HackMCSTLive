@@ -47,7 +47,7 @@ const winners = [
 
 export default function PreviousWinners() {
   return (
-    <section id="previouswinners" className="py-16 text-white text-center bg-transparent">
+    <section id="previouswinners" className="py-16 text-white text-center bg-black">
       <div className="container mx-auto relative">
       <div className="text-center mb-16 relative">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-red-500 to-red-200 bg-clip-text text-transparent">
