@@ -12,15 +12,15 @@ function Info2() {
   })
 
   return (
-    <div id="documentary" className='bg-black text-white info1txt fontarchytype text-center overheadDv d-flex flex-column justify-content-center align-items-center my-4'>
+    <div id="documentary" className='bg-transparent text-white info1txt fontarchytype text-center overheadDv d-flex flex-column justify-content-center align-items-center my-4'>
       <br></br>
       <br></br>
       <br></br>
       <br></br>
       
-      <p className="text-3xl font-bold text-center mb-2">
-        A Look in the Past
-      </p>
+      <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-red-500 to-red-200 bg-clip-text text-transparent">
+          A Look Into the Past
+        </h2>
       <p className="text-base pt-1 pb-4 text-balance">
         Check out this brief overview of last year's hackMCST VIII, featuring an ambitious project.
       </p>

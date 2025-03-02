@@ -2,6 +2,7 @@ import React from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import Carousel from "../components/Caro"
+import Bento from "./bentogrid"
 function Info1() {
 
 useGSAP (() => {
@@ -14,7 +15,7 @@ useGSAP (() => {
 
 
   return (
-    <div id="about" className="bg-black text-white fontarchytype text-center pt-9 pb-9 overheadDv d-flex flex-column justify-content-center align-items-center my-4">
+    <div id="about" className="bg-transparent text-white fontarchytype text-center pt-9 pb-9 overheadDv d-flex flex-column justify-content-center align-items-center my-4">
       <div className="text-center mb-16 relative">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-red-500 to-red-200 bg-clip-text text-transparent">
           Hack Your Dreams

@@ -70,8 +70,9 @@ export default function Info3() {
 
   return (
     <section id="faq" className="py-16 px-4 max-w-4xl mx-auto text-white fontarchytype">
-      <h1 className="text-3xl font-bold text-center mb-10">Frequently Asked Questions</h1>
-
+    <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-red-500 to-red-200 bg-clip-text text-transparent">
+          Frequently-Asked-Questions
+        </h2>
       <Accordion type="single" collapsible className="w-full">
         {faqItems.map((item, index) => (
           <AccordionItem key={index} value={`item-${index}`}>
@@ -87,7 +88,7 @@ export default function Info3() {
         <span>If you have any other questions, feel free to contact us at</span> 
         <a href="mailto:cis@mcvts.org" className="text-primary hover:underline whitespace-nowrap">
           cis@mcvts.org,
-        </a> 
+        </a>
         <span>and we will be glad to answer.</span>
       </p>
     </div>

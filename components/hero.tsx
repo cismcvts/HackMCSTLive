@@ -10,6 +10,7 @@ import Info4 from "./info4"
 import PreviousWinners from "./previouswinners"
 import Sponsors from "./sponosrs"
 import Footer from "./footer"
+import Bento from "./bentogrid"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -138,6 +139,12 @@ export default function Hero() {
 
       <div className="content-section relative z-10 bg-transparent min-h-screen flex items-center justify-center w-full -mt-12 -mb-16">
         <br />
+      </div>
+
+      <div className="content-section relative z-10 bg-transparent min-h-screen flex items-center justify-center w-full -mt-16 -mb-16">
+        <div className="container mx-auto text-center px-4">
+          <Bento />
+        </div>
       </div>
 
       <div className="content-section relative z-10 bg-transparent min-h-screen flex items-center justify-center w-full -mt-16 -mb-16">
