@@ -3,12 +3,10 @@
 import Hero from "@/components/hero"
 import Navbar from "@/components/Navbar"
 import CyberBackground from "../components/Spline"
-import LoadingScreen from "@/components/loading"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 export default function Home() {
 
-  const [mounted, setMounted] = useState(false)
   return (
     <main className="relative min-h-screen">
       <CyberBackground />

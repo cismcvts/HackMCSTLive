@@ -1,6 +1,6 @@
 "use client"
 
-import { Calendar, Award, Ticket, GraduationCap, WorkflowIcon as Workshop, Trophy, Cpu } from "lucide-react"
+import { Calendar, Ticket, GraduationCap, WorkflowIcon as Workshop, Trophy } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { useEffect, useState } from "react"
@@ -128,7 +128,7 @@ export default function CyberBento() {
           <div className="absolute inset-0 bg-gradient-to-br from-red-950/50 to-transparent" />
           <div className="relative h-full flex flex-col items-center justify-center">
             <div className="relative w-32 h-32">
-              <Image src="/mainlogowhite.png" alt="Logo" fill className="object-contain" />
+              <Image src="/mainlogored.png" alt="Logo" fill className="object-contain" />
             </div>
           </div>
         </motion.div>

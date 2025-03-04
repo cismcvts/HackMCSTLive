@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 
 export default function CyberBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const animationFrameRef = useRef<number | null>(null)
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -12,6 +13,7 @@ export default function CyberBackground() {
 
     const ctx = canvas.getContext("2d")
     if (!ctx) return
+
     const resizeCanvas = () => {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
@@ -19,17 +21,21 @@ export default function CyberBackground() {
 
     resizeCanvas()
     window.addEventListener("resize", resizeCanvas)
+
     const points = Array.from({ length: 5 }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.5,
-      vy: (Math.random() - 0.5) * 0.5,
-      radius: Math.random() * 300 + 100,
-      alpha: Math.random() * 0.5 + 0.2,
+      vx: (Math.random() - 0.5) * 1.2, // Slightly faster movement
+      vy: (Math.random() - 0.5) * 1.2,
+      radius: Math.random() * 250 + 80,
+      alpha: Math.random() * 0.3 + 0.2,
     }))
 
     const animate = () => {
-      ctx.fillStyle = "#000000"
+      animationFrameRef.current = requestAnimationFrame(animate)
+
+      // Instead of clearing everything, we apply a fading effect to create a smoother trail
+      ctx.fillStyle = "rgba(0, 0, 0, 0.2)" // Slight transparency
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
       points.forEach((point) => {
@@ -40,34 +46,24 @@ export default function CyberBackground() {
         if (point.y < 0 || point.y > canvas.height) point.vy *= -1
 
         const gradient = ctx.createRadialGradient(point.x, point.y, 0, point.x, point.y, point.radius)
-
         gradient.addColorStop(0, `rgba(255, 0, 0, ${point.alpha})`)
-        gradient.addColorStop(0.5, `rgba(139, 0, 0, ${point.alpha * 0.5})`)
+        gradient.addColorStop(0.6, `rgba(139, 0, 0, ${point.alpha * 0.5})`)
         gradient.addColorStop(1, "rgba(0, 0, 0, 0)")
 
         ctx.fillStyle = gradient
-        ctx.fillRect(0, 0, canvas.width, canvas.height)
+        ctx.beginPath()
+        ctx.arc(point.x, point.y, point.radius, 0, Math.PI * 2)
+        ctx.fill()
       })
-
-      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
-      const data = imageData.data
-
-      for (let i = 0; i < data.length; i += 4) {
-        const noise = Math.random() * 5
-        data[i] = Math.min(data[i] + noise, 255) // R
-        data[i + 1] = Math.min(data[i + 1], 255) // G
-        data[i + 2] = Math.min(data[i + 2], 255) // B
-      }
-
-      ctx.putImageData(imageData, 0, 0)
-
-      requestAnimationFrame(animate)
     }
 
     animate()
 
     return () => {
       window.removeEventListener("resize", resizeCanvas)
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current)
+      }
     }
   }, [])
 
@@ -87,4 +83,3 @@ export default function CyberBackground() {
     </>
   )
 }
-
