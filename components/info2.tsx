@@ -22,7 +22,7 @@ function Info2() {
           A Look Into the Past
         </h2>
       <p className="text-base pt-1 pb-4 text-balance">
-        Check out this brief overview of last year's hackMCST VIII, featuring an ambitious project.
+        Check out this brief overview of 2023's hackMCST VIII, featuring an ambitious project.
       </p>
       <div className='w-100 d-flex justify-content-center my-4'>
         <div className='text-center'>
@@ -31,7 +31,7 @@ function Info2() {
               <div className="relative pb-[56.25%] overflow-hidden rounded-lg shadow-lg">
                 <iframe 
                   className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/XSNxQHqqMVQ" 
+                  src="https://drive.google.com/file/d/1Fm1XiBBRFAbVqij9-JgTpAn42fWwYZrJ/preview" 
                   title="hackMCST VIII Video"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                   allowFullScreen>
