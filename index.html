@@ -91,7 +91,7 @@
         </section>
 
         <!-- The about section of the website -->
-        <section id="about" class="bg-dark">
+        <section id="about">
             <div class="container py-5">
                 <div class="row">
                     <!-- The two sections of the about page. They render side by side on bigger screens, and top to bottom on smaller screens -->
@@ -158,6 +158,106 @@
             </div>
         </section>
 
+        <!-- The previous winners section of the website -->
+        <section id="pastwinners">
+            <div class="container py-5">
+                <div class="row">
+                    <h1 class="font-monospace mb-5 text-white text-center">Previous Winners</h1>
+                    
+                </div>
+                <div class="col-lg-6 d-flex mx-auto">
+                    <!-- This is the carousel that shows all the images. -->
+                    <!-- Here's how to add more images:
+                                1) Add a <button> element to the carousel-indicators div. See the format below, but "data-bs-slide-to" has to be set to the correct slide number (indexed at 0).
+                                2) Add the actual <div class="carousel-item"> to the carousel-inner div. This is where the image is, follow the format below. Each slide's number is the order they are listed.
+                            -->
+                    <div id="carousel-winners" class="carousel slide" data-bs-ride="carousel">
+                        <h5 class="text-left">
+                            <u>hackMCST IX Winners</u>
+                        </h5>
+                        <div class="carousel-indicators">
+                            
+                            <!-- Step 1 -->
+                            <button type="button" data-bs-target="#carousel-winners" data-bs-slide-to="0" class="active"
+                                aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carousel-winners" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carousel-winners" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#carousel-winners" data-bs-slide-to="3"
+                                aria-label="Slide 4"></button>
+                            <button type="button" data-bs-target="#carousel-winners" data-bs-slide-to="4"
+                                aria-label="Slide 5"></button>
+                            <button type="button" data-bs-target="#carousel-winners" data-bs-slide-to="5"
+                                aria-label="Slide 6"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <!-- Step 2 -->
+                            <div class="carousel-item active">
+                                <img src="img/hackmcst-1stplace.png" class="d-block w-100" alt="...">
+                                <div class="p-4 text-center">
+                                    <h3 class="mb-2">1st Place</h3>
+                                    <h4 class="mb-2">Sign Speaks</h4>
+                                    <p>Dylan Cortegana, Veer Mangat, Siddhant Shah, & Rishi Rana</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/hackmcst-secondplace.jpg" class="d-block w-100" alt="...">
+                                <div class="p-4 text-center">
+                                    <h3 class="mb-2">2nd Place</h3>
+                                    <h4 class="mb-2">Botero-Bot (AI Tutor)</h4>
+                                    <p>Dhruv Kothari, Rohan Kommareddy, Bhavyansh Shivakoti, Devan Patel, & Dhruva Koushik Parthiban Kavithamani</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/hackmcst-3rdplace.png" class="d-block w-100" alt="...">
+                                <div class="p-4 text-center">
+                                    <h3 class="mb-2">3rd Place</h3>
+                                    <h4 class="mb-2">Sodifer</h4>
+                                    <p>Jadyn Monaco, Moosa Awais, Albert Zhang, Kyle Moy, Max Yung, Nick Klapal, & Maxon Baisley</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/hackmcst-sustainability.png" class="d-block w-100" alt="...">
+                                <div class="p-4 text-center">
+                                    <h3 class="mb-2">Sustainability - Winner</h3>
+                                    <h4 class="mb-2">Chef Go</h4>
+                                    <p>Alizeh Mero, Sheyla Kugic, Isabella Huang, & Andrea Manzanares</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/hackmcst-healthcare.png" class="d-block w-100" alt="...">
+                                <div class="p-4 text-center">
+                                    <h3 class="mb-2">Healthcare - Winner</h3>
+                                    <h4 class="mb-2">Voice Pilot</h4>
+                                    <p>Shreyas Angadi, Vihas Veggalam, Alan Qu, & Ruthvik Venkatesan</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/hackmcst-cybersec.png" class="d-block w-100" alt="...">
+                                <div class="p-4 text-center">
+                                    <h3 class="mb-2">Cybersecurity - Winner</h3>
+                                    <h4 class="mb-2">Catfishing</h4>
+                                    <p>Megha Srinivas, Vanya Gupta, Medha Vavilala, Srinika Pamarthy, & Avantika Pamarthy</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- These are the "previous"/"next" buttons. You don't need to change these. -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-winners"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel-winners"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- The documentary section of the website -->
         <section id="documentary">
             <div class="container py-5 text-center">
@@ -167,7 +267,7 @@
                         This <iframe> is where the video is rendered, which embeds the Google Drive video.
                     -->
                     <iframe class="figure-img w-100" height="315" src="https://drive.google.com/file/d/1Fm1XiBBRFAbVqij9-JgTpAn42fWwYZrJ/preview" style="border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"></iframe>
-                    <figcaption class="figure-caption text-white">Check out this brief overview of last year's hackMCST VIII, featuring an ambitious project.</figcaption>
+                    <figcaption class="figure-caption text-white">Check out this brief overview of 2023's hackMCST VIII, featuring an ambitious project.</figcaption>
                 </figure>
             </div>
         </section>
@@ -530,6 +630,7 @@
                     -->
                     <a href="#home" class="list-group-item list-group-item-action menu-link">Home</a>
                     <a href="#about" class="list-group-item list-group-item-action menu-link">About</a>
+                    <a href="#pastwinners" class="list-group-item list-group-item-action menu-link">Previous Winners</a>
                     <a href="#documentary" class="list-group-item list-group-item-action menu-link">Documentary</a>
                     <a href="#faq" class="list-group-item list-group-item-action menu-link">FAQs</a>
                     <a href="#testimonials" class="list-group-item list-group-item-action menu-link">Testimonials</a>

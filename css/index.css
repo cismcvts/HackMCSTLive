@@ -118,7 +118,19 @@ a {
     animation-duration: 3s;
 }
 
-#documentary, footer {
+#documentary {
+    background-color: var(--bs-red);
+}
+/* --bs-red --bs-dark */
+#pastwinners {
+    background-color: var(--bs-dark);
+}
+
+footer {
+    background-color: var(--bs-red);
+}
+
+#about {
     background-color: var(--bs-red);
 }
 
@@ -156,4 +168,21 @@ a {
 
 .sponsor > .card:hover {
     transform: translateY(-5%);
+}
+
+.image-container {
+    position: relative;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 10px; /* Adjust to move closer/further from the top */
+    left: 10px; /* Adjust to move closer/further from the left */
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5); /* Optional for contrast */
+    padding: 5px 10px;
+    border-radius: 5px; /* Optional for rounded corners */
+    z-index: 10;
 }
