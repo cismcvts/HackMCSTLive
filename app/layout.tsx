@@ -12,7 +12,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    
     <html lang="en">
       <link rel="icon" href="/hacklogo.ico" sizes="any" />
       <body

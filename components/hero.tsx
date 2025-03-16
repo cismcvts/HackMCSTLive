@@ -1,5 +1,6 @@
+"use client"
+
 import { useRef } from "react"
-import CityModel from "./City"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
@@ -7,11 +8,11 @@ import Info1 from "./info1"
 import Info2 from "./info2"
 import Info3 from "./info3"
 import Info4 from "./info4"
-
 import PreviousWinners from "./previouswinners"
 import Sponsors from "./sponosrs"
-import Footer from "./footer"
 import Bento from "./bentogrid"
+import ThreeDMainHeader from "./3dmainheader"
+import Footer from "./footer"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -50,9 +51,9 @@ export default function Hero() {
       },
       "-=1.5",
     )
-    
+
     heroTl.fromTo(
-      ".city-model-container",
+      ".logo-model-container",
       {
         opacity: 0,
       },
@@ -113,11 +114,11 @@ export default function Hero() {
       markers: false,
       onEnter: () => {
         gsap.to(".hero", { opacity: 0, duration: 0.5 })
-        gsap.to(".city-model-container", { opacity: 0, duration: 0.5 }) 
+        gsap.to(".logo-model-container", { opacity: 0, duration: 0.5 })
       },
       onLeaveBack: () => {
         gsap.to(".hero", { opacity: 1, duration: 0.5 })
-        gsap.to(".city-model-container", { opacity: 1, duration: 0.5 })
+        gsap.to(".logo-model-container", { opacity: 1, duration: 0.5 })
       },
     })
 
@@ -128,9 +129,11 @@ export default function Hero() {
 
   return (
     <div ref={containerRef} className="relative w-full">
-      <div className="city-model-container fixed top-0 left-0 right-0 h-96 z-0 opacity-0 pointer-events-none">
-        <CityModel />
+      <div className="logo-model-container fixed top-0 left-0 right-0 h-screen z-0 opacity-0 pointer-events-none">
+        <div className="w-full h-full">
+        </div>
       </div>
+      <ThreeDMainHeader />
 
       <div className="hero opacity-0 h-screen sticky top-0 overflow-hidden w-full">
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
@@ -140,7 +143,6 @@ export default function Hero() {
               text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl
               text-center px-4"
             >
-              hackMCST X
             </h1>
             <div
               className="captionherotext text-white font-medium 
@@ -148,14 +150,9 @@ export default function Hero() {
               mt-4 sm:mt-6 md:mt-8 lg:mt-10
               text-center px-4"
             >
-              April 26th, 2025
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="content-section relative z-10 bg-transparent min-h-screen flex items-center justify-center w-full -mt-12 -mb-16">
-        <br />
       </div>
 
       <div className="content-section relative z-10 bg-transparent min-h-screen flex items-center justify-center w-full -mt-16 -mb-16">
@@ -197,8 +194,15 @@ export default function Hero() {
           <Sponsors />
         </div>
       </div>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
 
       <Footer />
     </div>
   )
 }
+

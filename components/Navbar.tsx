@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation"
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -22,18 +23,17 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 w-full z-50">
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-red-950/20 to-black backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-gradient-to-r" />
 
       <div className="absolute -top-20 left-1/4 w-32 h-32 bg-red-600/20 rounded-full blur-3xl" />
       <div className="absolute -top-20 right-1/4 w-32 h-32 bg-red-800/20 rounded-full blur-3xl" />
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo goes smrh here*/}
+          <Image src="/mainlogored.png" alt="logo" width={50} height={20}></Image>
           <div className="flex-shrink-0">
             <a href="#" className="flex items-center">
               <span className="text-2xl font-bold bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">
-                
               </span>
             </a>
           </div>

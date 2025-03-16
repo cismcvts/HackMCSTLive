@@ -69,7 +69,7 @@ export default function Info3() {
   ]
 
   return (
-    <section id="faq" className="py-16 px-4 max-w-4xl mx-auto text-white fontarchytype bg-black">
+    <section id="faq" className="py-16 px-4 max-w-4xl mx-auto text-black fontarchytype">
     <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-red-500 to-red-200 bg-clip-text text-transparent">
           Frequently-Asked-Questions
         </h2>
