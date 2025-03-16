@@ -144,8 +144,6 @@ export default function ThreeDMainHeader() {
           }
         })
 
-        const box = new THREE.Box3().setFromObject(model)
-
         model.scale.set(4.5, 4.5, 4.5)
         model.rotation.x = Math.PI / 2
 
