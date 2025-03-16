@@ -75,7 +75,6 @@ const SimpleCarousel = ({ slides }: { slides: Winner[] }) => {
   }, [])
 
   useEffect(() => {
-
     cardRefs.current = cardRefs.current.slice(0, slides.length)
 
     const timer = setTimeout(() => {
@@ -208,7 +207,7 @@ const SimpleCarousel = ({ slides }: { slides: Winner[] }) => {
                   cardRefs.current[index] = el
                 }}
                 className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transition-shadow duration-300 hover:shadow-lg"
-                style={{ height: maxHeight > 0 ? `${maxHeight}px` : "auto" }}
+                style={{ minHeight: maxHeight > 0 ? `${maxHeight}px` : "auto" }}
               >
                 <div className="relative aspect-video">
                   <Image
@@ -217,6 +216,7 @@ const SimpleCarousel = ({ slides }: { slides: Winner[] }) => {
                     width={400}
                     height={225}
                     className="object-cover w-full h-full"
+                    style={{ aspectRatio: "16/9" }}
                     priority={index === 0}
                   />
                 </div>
@@ -224,7 +224,9 @@ const SimpleCarousel = ({ slides }: { slides: Winner[] }) => {
                   <h3 className="text-red-600 font-bold text-lg">{slide.place}</h3>
                   <h4 className="font-semibold text-gray-800">{slide.project}</h4>
                   <div className="mt-2 overflow-y-auto flex-grow">
-                    <p className="text-gray-600 text-sm break-words">{slide.members}</p>
+                    <p className="text-gray-600 text-sm line-clamp-3 hover:line-clamp-none transition-all duration-300">
+                      {slide.members}
+                    </p>
                   </div>
                 </div>
               </div>
