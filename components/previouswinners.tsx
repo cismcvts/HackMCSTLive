@@ -1,9 +1,10 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import gsap from "gsap"
 
 type Winner = {
   place: string
@@ -22,8 +23,7 @@ const winners = [
   {
     place: "2nd Place",
     project: "Botero-Bot",
-    members:
-      "Dhruv Kothari, Rohan Kommareddy, Bhavyansh Shivakoti, Devan Patel, & Dhruva  Parthiban Kavithamani",
+    members: "Dhruv Kothari, Rohan Kommareddy, Bhavyansh Shivakoti, Devan Patel, & Dhruva Parthiban Kavithamani",
     image: "/image/hackmcst-secondplace.jpg",
   },
   {
@@ -56,6 +56,12 @@ const SimpleCarousel = ({ slides }: { slides: Winner[] }) => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [slideDirection, setSlideDirection] = useState("")
   const [isMobile, setIsMobile] = useState(false)
+  const [maxHeight, setMaxHeight] = useState(0)
+  const [isAnimating, setIsAnimating] = useState(false)
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
+  const slideContainerRef = useRef<HTMLDivElement>(null)
+  const prevBtnRef = useRef<HTMLButtonElement>(null)
+  const nextBtnRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     const checkMobile = () => {
@@ -68,23 +74,112 @@ const SimpleCarousel = ({ slides }: { slides: Winner[] }) => {
     return () => window.removeEventListener("resize", checkMobile)
   }, [])
 
+  useEffect(() => {
+
+    cardRefs.current = cardRefs.current.slice(0, slides.length)
+
+    const timer = setTimeout(() => {
+      let highest = 0
+      cardRefs.current.forEach((ref) => {
+        if (ref && ref.offsetHeight > highest) {
+          highest = ref.offsetHeight
+        }
+      })
+
+      if (highest > 0) {
+        setMaxHeight(highest)
+      }
+    }, 100)
+
+    return () => clearTimeout(timer)
+  }, [slides, activeIndex, isMobile])
+
   const slidesToShow = isMobile ? 1 : 3
 
   const totalPages = Math.ceil(slides.length / slidesToShow)
 
+  const animateSlide = (direction: "next" | "prev", newIndex: number) => {
+    if (isAnimating || !slideContainerRef.current) return
+    setIsAnimating(true)
+
+    const container = slideContainerRef.current
+    const distance = direction === "next" ? -100 : 100
+    const btnRef = direction === "next" ? nextBtnRef : prevBtnRef
+    if (btnRef.current) {
+      gsap.to(btnRef.current, {
+        scale: 0.9,
+        backgroundColor: "rgba(239, 68, 68, 0.1)",
+        duration: 0.2,
+        yoyo: true,
+        repeat: 1,
+        onComplete: () => {
+          gsap.set(btnRef.current, {
+            scale: 1,
+            backgroundColor: "transparent",
+          })
+        },
+      })
+    }
+
+    const flash = document.createElement("div")
+    flash.className = "absolute inset-0 bg-red-500/10 rounded-lg z-10"
+    container.appendChild(flash)
+
+    gsap.to(flash, {
+      opacity: 0,
+      duration: 0.5,
+      ease: "power2.out",
+      onComplete: () => {
+        if (container.contains(flash)) {
+          container.removeChild(flash)
+        }
+      },
+    })
+
+    gsap.fromTo(
+      container,
+      { x: 0, opacity: 1 },
+      {
+        x: `${distance}%`,
+        opacity: 0,
+        duration: 0.4,
+        ease: "power2.inOut",
+        onComplete: () => {
+          setActiveIndex(newIndex)
+          setSlideDirection(direction)
+
+          gsap.set(container, { x: -distance })
+
+          gsap.to(container, {
+            x: 0,
+            opacity: 1,
+            duration: 0.4,
+            ease: "power2.out",
+            onComplete: () => {
+              setIsAnimating(false)
+            },
+          })
+        },
+      },
+    )
+  }
+
   const goToSlide = (index: number) => {
-    setSlideDirection(index > activeIndex ? "next" : "prev")
-    setActiveIndex(index)
+    if (isAnimating) return
+    const direction = index > activeIndex ? "next" : "prev"
+    animateSlide(direction, index)
   }
 
   const nextSlide = () => {
-    setSlideDirection("next")
-    setActiveIndex((prev) => (prev + 1) % totalPages)
+    if (isAnimating) return
+    const newIndex = (activeIndex + 1) % totalPages
+    animateSlide("next", newIndex)
   }
 
   const prevSlide = () => {
-    setSlideDirection("prev")
-    setActiveIndex((prev) => (prev - 1 + totalPages) % totalPages)
+    if (isAnimating) return
+    const newIndex = (activeIndex - 1 + totalPages) % totalPages
+    animateSlide("prev", newIndex)
   }
 
   const getCurrentSlides = () => {
@@ -98,11 +193,7 @@ const SimpleCarousel = ({ slides }: { slides: Winner[] }) => {
   return (
     <div className="w-full">
       <div className="relative overflow-hidden">
-        <div
-          className={`flex transition-all duration-300 ease-in-out ${
-            slideDirection === "next" ? "animate-slide-left" : slideDirection === "prev" ? "animate-slide-right" : ""
-          }`}
-        >
+        <div ref={slideContainerRef} className="flex">
           {visibleSlides.map((slide, index) => (
             <div
               key={`slide-${activeIndex}-${index}`}
@@ -112,7 +203,13 @@ const SimpleCarousel = ({ slides }: { slides: Winner[] }) => {
                 flex: `0 0 ${100 / slidesToShow}%`,
               }}
             >
-              <div className="bg-white rounded-lg shadow-md overflow-hidden h-full">
+              <div
+                ref={(el: HTMLDivElement | null) => {
+                  cardRefs.current[index] = el
+                }}
+                className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transition-shadow duration-300 hover:shadow-lg"
+                style={{ height: maxHeight > 0 ? `${maxHeight}px` : "auto" }}
+              >
                 <div className="relative aspect-video">
                   <Image
                     src={slide.image || "/placeholder.svg"}
@@ -123,10 +220,12 @@ const SimpleCarousel = ({ slides }: { slides: Winner[] }) => {
                     priority={index === 0}
                   />
                 </div>
-                <div className="p-4">
+                <div className="p-4 flex flex-col flex-grow">
                   <h3 className="text-red-600 font-bold text-lg">{slide.place}</h3>
                   <h4 className="font-semibold text-gray-800">{slide.project}</h4>
-                  <p className="text-gray-600 text-sm mt-2 line-clamp-2">{slide.members}</p>
+                  <div className="mt-2 overflow-y-auto flex-grow">
+                    <p className="text-gray-600 text-sm break-words">{slide.members}</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -136,12 +235,13 @@ const SimpleCarousel = ({ slides }: { slides: Winner[] }) => {
 
       <div className="flex justify-center items-center mt-6 gap-4">
         <Button
+          ref={prevBtnRef}
           onClick={prevSlide}
           variant="outline"
           size="icon"
-          className="bg-white border-red-300 text-red-600 hover:bg-red-50 hover:text-red-700"
+          className="bg-white border-red-300 text-red-600 hover:bg-red-50 hover:text-red-700 transition-all duration-300"
           aria-label="Previous slide"
-          disabled={activeIndex === 0 && slideDirection !== "next"}
+          disabled={(activeIndex === 0 && slideDirection !== "next") || isAnimating}
         >
           <ChevronLeft className="h-5 w-5" />
         </Button>
@@ -151,21 +251,23 @@ const SimpleCarousel = ({ slides }: { slides: Winner[] }) => {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-2 h-2 rounded-full transition-all ${
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 index === activeIndex ? "bg-red-600 w-4" : "bg-gray-300 hover:bg-gray-400"
               }`}
               aria-label={`Go to page ${index + 1}`}
+              disabled={isAnimating}
             />
           ))}
         </div>
 
         <Button
+          ref={nextBtnRef}
           onClick={nextSlide}
           variant="outline"
           size="icon"
-          className="bg-white border-red-300 text-red-600 hover:bg-red-50 hover:text-red-700"
+          className="bg-white border-red-300 text-red-600 hover:bg-red-50 hover:text-red-700 transition-all duration-300"
           aria-label="Next slide"
-          disabled={activeIndex === totalPages - 1 && slideDirection !== "prev"}
+          disabled={(activeIndex === totalPages - 1 && slideDirection !== "prev") || isAnimating}
         >
           <ChevronRight className="h-5 w-5" />
         </Button>

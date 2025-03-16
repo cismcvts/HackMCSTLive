@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from "react"
 import * as THREE from "three"
+import Link from 'next/link'
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
@@ -289,14 +290,16 @@ export default function ThreeDMainHeader() {
             <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white border-none">
               Register Now
             </Button>
+            <Link href="/code-of-conduct">
             <Button
               variant="outline"
               size="lg"
               className="border-red-500/50 text-red-400 hover:bg-red-600/20 hover:text-red-300 transition-colors group"
             >
-              Learn More
+              Code of Conduct
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
+            </Link>
           </div>
         </div>
 
