@@ -51,8 +51,14 @@ export default function Info3() {
     },
     {
       question: "Can I use AI in the making of my project?",
-      answer:
-        "You can use AI assisted tools (such as GitHub Copilot) to assist in the development of your project, but it should still reflect your initial vision. It should not strongly influence the outcome of the project.\n\nYou CAN use AI as part of your project, however (such as for algorithms, backend management, or making something similar to an image detector).",
+      answer: (
+        <span>
+          <a href="/code-of-conduct" className="text-primary hover:underline">
+            Click here
+          </a>{" "}
+          to view our A.I. policy in our code of conduct.
+        </span>
+      ),
     },
     {
       question: "What is the Code of Conduct?",
