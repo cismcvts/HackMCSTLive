@@ -121,7 +121,7 @@ git remote add origin https://github.com/username/repo-name.git
                       <pre className="bg-gray-800 p-3 rounded-md text-sm overflow-x-auto text-left">
                         <code>
 # Create a README
-echo "# Hackathon Project" > README.md
+echo "# Hackathon Project" {'>'} README.md
    
 # Add and commit
 git add README.md
