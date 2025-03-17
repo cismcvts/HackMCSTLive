@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from "react"
 import * as THREE from "three"
-import Link from 'next/link'
+import Link from "next/link"
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
@@ -17,15 +17,24 @@ export default function ThreeDMainHeader() {
 
     const scene = new THREE.Scene()
 
-    const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 1000)
-    camera.position.set(0, 0, 50) 
+    const camera = new THREE.PerspectiveCamera(
+      40,
+      canvasRef.current.clientWidth / canvasRef.current.clientHeight,
+      0.1,
+      1000,
+    )
+    camera.position.set(0, 0, 50)
+
+    const container = canvasRef.current
+    const width = container.clientWidth
+    const height = container.clientHeight
 
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
       alpha: true,
       powerPreference: "high-performance",
     })
-    renderer.setSize(window.innerWidth, window.innerHeight)
+    renderer.setSize(width, height)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     renderer.shadowMap.enabled = true
     renderer.shadowMap.type = THREE.PCFSoftShadowMap
@@ -70,13 +79,13 @@ export default function ThreeDMainHeader() {
     const material = new THREE.MeshPhysicalMaterial({
       color: new THREE.Color("#ff0000"),
       metalness: 0.85,
-      roughness: 0.1, 
+      roughness: 0.1,
       envMapIntensity: 1.2,
       clearcoat: 0.8,
-      clearcoatRoughness: 0.1, 
+      clearcoatRoughness: 0.1,
       reflectivity: 0.9,
       emissive: new THREE.Color("#ff2000"),
-      emissiveIntensity: 0.5, 
+      emissiveIntensity: 0.5,
     })
 
     const pmremGenerator = new THREE.PMREMGenerator(renderer)
@@ -87,13 +96,10 @@ export default function ThreeDMainHeader() {
       "/assets/env/studio_small_08_1k.jpg",
       (texture) => {
         texture.mapping = THREE.EquirectangularReflectionMapping
-
         texture.colorSpace = THREE.SRGBColorSpace
-
         const envMap = pmremGenerator.fromEquirectangular(texture).texture
         scene.environment = envMap
         material.envMap = envMap
-
         pmremGenerator.dispose()
       },
       undefined,
@@ -107,9 +113,7 @@ export default function ThreeDMainHeader() {
           "/assets/env/pz.jpg",
           "/assets/env/nz.jpg",
         ])
-
         envMap.colorSpace = THREE.SRGBColorSpace
-
         scene.environment = envMap
         material.envMap = envMap
       },
@@ -147,7 +151,7 @@ export default function ThreeDMainHeader() {
         model.scale.set(4.5, 4.5, 4.5)
         model.rotation.x = Math.PI / 2
 
-        model.position.x = -20
+        model.position.x = 0
         model.position.y = -5
         scene.add(model)
 
@@ -219,8 +223,9 @@ export default function ThreeDMainHeader() {
     const handleResize = () => {
       if (!canvasRef.current) return
 
-      const width = window.innerWidth
-      const height = window.innerHeight
+      const container = canvasRef.current
+      const width = container.clientWidth
+      const height = container.clientHeight
 
       camera.aspect = width / height
       camera.updateProjectionMatrix()
@@ -266,46 +271,48 @@ export default function ThreeDMainHeader() {
     <div
       ref={containerRef}
       className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      style={{ height: "100vh" }} 
     >
-      <div className="absolute inset-0 bg-gradient-to-b  z-10" />
-      <div className="absolute top-0 left-0 w-full h-full" />
+      <div className="absolute inset-0 bg-gradient-to-b z-10" />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-[100px] animate-pulse" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-800/20 rounded-full blur-[100px] animate-pulse" />
 
-      <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between relative z-10">
-        <div className="w-full lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-red-500 to-red-200 bg-clip-text text-transparent">
-            hackMCST 2025
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-6">
-            April 26, 2025 • Morris County School of Technology
-          </p>
-          <p className="text-gray-400 max-w-lg mb-8">
-            Join us at Morris County's premier high school hackathon for 12 hours of coding, creativity, and collaboration. Build
-            innovative projects and compete for prizes!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white border-none">
-              Register Now
-            </Button>
-            <Link href="/code-of-conduct">
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-red-500/50 text-red-400 hover:bg-red-600/20 hover:text-red-300 transition-colors group"
-            >
-              Code of Conduct
-              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            </Link>
+      <div className="container relative z-10 h-full flex items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full items-center">
+          <div className="text-center lg:text-left">
+            <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-red-500 to-red-200 bg-clip-text text-transparent">
+              hackMCST 2025
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-300 mb-6">
+              April 26, 2025 • Morris County School of Technology
+            </p>
+            <p className="text-gray-400 max-w-lg mx-auto lg:mx-0 mb-8">
+              Join us at Morris County's premier high school hackathon for 12 hours of coding, creativity, and
+              collaboration. Build innovative projects and compete for prizes!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white border-none">
+                Register Now
+              </Button>
+              <Link href="/code-of-conduct">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-red-500/50 text-red-400 hover:bg-red-600/20 hover:text-red-300 transition-colors group"
+                >
+                  Code of Conduct
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+            </div>
           </div>
-        </div>
 
-        <div className="w-full lg:w-1/2 h-[500px] lg:h-[700px] relative">
-          <div ref={canvasRef} className="w-full h-full absolute"></div>
-          <div ref={loadingRef} className="absolute inset-0 flex flex-col items-center justify-center z-10">
-            <div className="w-16 h-16 border-4 border-t-red-500 border-r-red-500/50 border-b-red-500/30 border-l-red-500/10 rounded-full animate-spin mb-4"></div>
-            <p className="text-white text-lg font-medium">0% loaded</p>
+          <div className="h-[500px] lg:h-[600px] relative">
+            <div ref={canvasRef} className="absolute inset-0"></div>
+            <div ref={loadingRef} className="absolute inset-0 flex flex-col items-center justify-center z-10">
+              <div className="w-16 h-16 border-4 border-t-red-500 border-r-red-500/50 border-b-red-500/30 border-l-red-500/10 rounded-full animate-spin mb-4"></div>
+              <p className="text-white text-lg font-medium">0% loaded</p>
+            </div>
           </div>
         </div>
       </div>
