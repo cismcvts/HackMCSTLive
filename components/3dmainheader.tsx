@@ -91,22 +91,6 @@ export default function ThreeDMainHeader() {
     const pmremGenerator = new THREE.PMREMGenerator(renderer)
     pmremGenerator.compileEquirectangularShader()
 
-    const textureLoader = new THREE.TextureLoader()
-    textureLoader.load(
-      "/assets/env/studio_small_08_1k.jpg",
-      (texture) => {
-        texture.mapping = THREE.EquirectangularReflectionMapping
-        texture.colorSpace = THREE.SRGBColorSpace
-        const envMap = pmremGenerator.fromEquirectangular(texture).texture
-        scene.environment = envMap
-        material.envMap = envMap
-        pmremGenerator.dispose()
-      },
-      undefined,
-      () => {
-      },
-    )
-
     let model: THREE.Object3D | null = null
 
     let loadingProgress = 0
