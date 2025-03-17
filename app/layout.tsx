@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "HackMCSTX",
-  description: "的有9些也是非不",
+  description: "Norris County School of Technology, 10th Aniversary",
 };
 
 export default function RootLayout({
@@ -14,6 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <link rel="icon" href="/hacklogo.ico" sizes="any" />
       <body
       >
         {children}

@@ -65,7 +65,7 @@ export default function Info4() {
 
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
-  const timerRef = useRef<number | null>(null)
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
 
   const nextSlide = useCallback(() => {
     if (isAnimating) return
@@ -86,7 +86,7 @@ export default function Info4() {
       clearInterval(timerRef.current)
     }
 
-    timerRef.current = window.setInterval(() => {
+    timerRef.current = setInterval(() => {
       nextSlide()
     }, 8000)
 
@@ -98,8 +98,8 @@ export default function Info4() {
   }, [nextSlide])
 
   return (
-    <div id="testimonials" className="w-full max-w-5xl mx-auto px-4 py-12 relative bg-black">
-      <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 via-black/40 to-black/60 rounded-xl -z-10" />
+    <div id="testimonials" className="w-full max-w-5xl mx-auto px-4 py-12 relative bg-white">
+      <div className="absolute inset-0 bg-gradient-to-br from-red-100/60 via-white/80 to-white rounded-xl -z-10" />
 
       <div className="overflow-hidden relative">
         <div
@@ -111,17 +111,17 @@ export default function Info4() {
               <Card className="border-0 bg-transparent shadow-none">
                 <CardContent className="p-6 md:p-10">
                   <div className="relative">
-                    <div className="absolute -top-4 -left-4 w-20 h-20 bg-red-600/30 rounded-full blur-xl" />
-                    <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-red-700/20 rounded-full blur-xl" />
+                    <div className="absolute -top-4 -left-4 w-20 h-20 bg-red-200/70 rounded-full blur-xl" />
+                    <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-red-300/50 rounded-full blur-xl" />
 
                     <blockquote className="relative z-10">
                       <div className="text-4xl text-red-600 font-serif leading-tight mb-2">"</div>
-                      <p className="text-base md:text-lg text-white/90 mb-6 leading-relaxed">{testimonial.quote}</p>
+                      <p className="text-base md:text-lg text-gray-700 mb-6 leading-relaxed">{testimonial.quote}</p>
                       <footer className="flex items-center mt-4">
-                        <div className="w-10 h-1 bg-gradient-to-r from-red-600 to-red-900 mr-3" />
+                        <div className="w-10 h-1 bg-gradient-to-r from-red-500 to-red-600 mr-3" />
                         <div>
-                          <p className="font-semibold text-white">{testimonial.author}</p>
-                          <p className="text-sm text-white/70">{testimonial.location}</p>
+                          <p className="font-semibold text-gray-900">{testimonial.author}</p>
+                          <p className="text-sm text-gray-600">{testimonial.location}</p>
                         </div>
                       </footer>
                     </blockquote>
@@ -138,7 +138,7 @@ export default function Info4() {
           onClick={prevSlide}
           variant="outline"
           size="icon"
-          className="bg-black/50 border-red-900/50 text-white hover:bg-red-950/30 hover:text-red-200"
+          className="bg-white border-red-300 text-red-600 hover:bg-red-50 hover:text-red-700 hover:border-red-400"
         >
           <ChevronLeft className="h-5 w-5" />
           <span className="sr-only">Previous</span>
@@ -154,7 +154,7 @@ export default function Info4() {
                 setTimeout(() => setIsAnimating(false), 500)
               }}
               className={`w-2 h-2 rounded-full transition-all ${
-                index === currentIndex ? "bg-red-600 w-4" : "bg-white/30 hover:bg-white/50"
+                index === currentIndex ? "bg-red-600 w-4" : "bg-gray-300 hover:bg-gray-400"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -165,7 +165,7 @@ export default function Info4() {
           onClick={nextSlide}
           variant="outline"
           size="icon"
-          className="bg-black/50 border-red-900/50 text-white hover:bg-red-950/30 hover:text-red-200"
+          className="bg-white border-red-300 text-red-600 hover:bg-red-50 hover:text-red-700 hover:border-red-400"
         >
           <ChevronRight className="h-5 w-5" />
           <span className="sr-only">Next</span>
