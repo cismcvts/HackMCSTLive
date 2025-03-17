@@ -104,18 +104,6 @@ export default function ThreeDMainHeader() {
       },
       undefined,
       () => {
-        const cubeTextureLoader = new THREE.CubeTextureLoader()
-        const envMap = cubeTextureLoader.load([
-          "/assets/env/px.jpg",
-          "/assets/env/nx.jpg",
-          "/assets/env/py.jpg",
-          "/assets/env/ny.jpg",
-          "/assets/env/pz.jpg",
-          "/assets/env/nz.jpg",
-        ])
-        envMap.colorSpace = THREE.SRGBColorSpace
-        scene.environment = envMap
-        material.envMap = envMap
       },
     )
 
