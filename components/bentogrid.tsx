@@ -44,7 +44,7 @@ export default function CyberBento() {
           <div className="absolute inset-0 bg-gradient-to-br from-red-100 to-transparent" />
           <div className="relative h-full flex flex-col justify-between items-center">
             <div className="flex items-center gap-3">
-              <div className="text-red-600 font-bold text-xl flex gap-1">HackMCST X Starts in</div>
+              <div className="text-red-600 font-bold text-xl flex gap-1">HackMCST 10 Starts in</div>
             </div>
             <div className="text-5xl font-bold text-red-600 font-mono items-center">
               <motion.span

@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "HackMCSTX",
-  description: "的有9些也是非不",
+  description: "Norris County School of Technology, 10th Aniversary",
 };
 
 export default function RootLayout({

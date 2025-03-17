@@ -15,8 +15,7 @@ interface SponsorList {
 }
 
 export default function Sponsors() {
-  const [hoveredSponsor, setHoveredSponsor] = useState<string | null>(null)
-
+  const [, setHoveredSponsor] = useState<string | null>(null)
   const sponsorTiers: SponsorList[] = [
     {
       name: "Sponsors",
