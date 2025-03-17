@@ -28,7 +28,7 @@ const winners = [
   },
   {
     place: "3rd Place",
-    project: "Sodifer",
+    project: "Sodifier",
     members: "Jadyn Monaco, Moosa Awais, Albert Zhang, Kyle Moy, Max Yung, Nick Klapal, & Maxon Baisley",
     image: "/image/hackmcst-3rdplace.png",
   },

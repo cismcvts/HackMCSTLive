@@ -120,7 +120,7 @@ export default function ThreeDMainHeader() {
           }
         })
 
-        model.scale.set(4.5, 4.5, 4.5)
+        model.scale.set(4.75, 4.75, 4.75)
         model.rotation.x = Math.PI / 2
 
         model.position.x = 0
@@ -259,7 +259,7 @@ export default function ThreeDMainHeader() {
               April 26, 2025 • Morris County School of Technology
             </p>
             <p className="text-gray-400 max-w-lg mx-auto lg:mx-0 mb-8">
-              Join us at Morris County's premier high school hackathon for 12 hours of coding, creativity, and
+              Join us at Morris County's premier Middle/High school hackathon for 12 hours of coding, creativity, and
               collaboration. Build innovative projects and compete for prizes!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
