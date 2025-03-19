@@ -123,6 +123,8 @@ export default function ThreeDMainHeader() {
         model.scale.set(4.75, 4.75, 4.75)
         model.rotation.x = Math.PI / 2
 
+        model.translateX(Math.PI / 3)
+
         model.position.x = 0
         model.position.y = -5
         scene.add(model)

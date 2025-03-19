@@ -182,12 +182,12 @@ export default function CyberBento() {
           <div className="relative h-full flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
             <div className="flex items-center gap-2">
               <Trophy className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-red-600" />
-              <h2 className="text-red-600 font-bold text-xs sm:text-sm md:text-base">Prizes:</h2>
+              <h2 className="text-red-600 font-bold text-xs sm:text-sm md:text-base">Prizes</h2>
             </div>
             <div className="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-4">
-              <div className="text-red-500 font-mono text-xs sm:text-sm">1st: $300</div>
-              <div className="text-red-500 font-mono text-xs sm:text-sm">2nd: $200</div>
-              <div className="text-red-500 font-mono text-xs sm:text-sm">3rd: Amazon Gift Card</div>
+              <div className="text-red-500 font-mono text-xs sm:text-sm">1st: {"TBD"}</div>
+              <div className="text-red-500 font-mono text-xs sm:text-sm">2nd: {"TBD"}</div>
+              <div className="text-red-500 font-mono text-xs sm:text-sm">3rd: {"TBD"}</div>
             </div>
           </div>
         </motion.div>

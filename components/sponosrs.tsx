@@ -62,12 +62,17 @@ export default function Sponsors() {
           Our Sponsors
         </h2>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          Thank you to our amazing sponsors who make innovation possible
+          Thank you to our amazing sponsors who make innovation possible 
+        </p>
+        <br></br>
+        <br></br>
+        <p className="text-gray-600 max-w-4xl mx-auto">
+         Coming Soon 
         </p>
         <div className="absolute left-1/2 -bottom-4 w-32 h-1 bg-gradient-to-r from-red-600/0 via-red-600 to-red-600/0 transform -translate-x-1/2" />
       </div>
 
-      <div className="space-y-16">
+      {/* <div className="space-y-16">
         {sponsorTiers.map((tier) => (
           <div key={tier.name} className="relative">
             <div className="flex items-center justify-center gap-3 mb-8">
@@ -105,7 +110,7 @@ export default function Sponsors() {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   )
 }
