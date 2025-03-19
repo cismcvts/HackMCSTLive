@@ -15,41 +15,7 @@ interface SponsorList {
 }
 
 export default function Sponsors() {
-  const [, setHoveredSponsor] = useState<string | null>(null)
-  const sponsorTiers: SponsorList[] = [
-    {
-      name: "Sponsors",
-      icon: Medal,
-      description: "Valued contributors to our community",
-      sponsors: [
-        {
-          name: "1",
-          logo: "/placeholder.svg?height=50&width=120",
-          website: "#",
-        },
-        {
-          name: "2",
-          logo: "/placeholder.svg?height=50&width=120",
-          website: "#",
-        },
-        {
-          name: "3",
-          logo: "/placeholder.svg?height=50&width=120",
-          website: "#",
-        },
-        {
-          name: "4",
-          logo: "/placeholder.svg?height=50&width=120",
-          website: "#",
-        },
-        {
-          name: "5",
-          logo: "/placeholder.svg?height=50&width=120",
-          website: "#",
-        },
-      ],
-    },
-  ]
+  const [] = useState<string | null>(null)
 
   return (
     <div id="sponsors" className="relative w-full max-w-7xl mx-auto px-4 py-16">
