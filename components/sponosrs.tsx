@@ -1,18 +1,18 @@
 "use client"
 
 import { useState } from "react"
-import { type Diamond, Medal } from "lucide-react"
+// import { type Diamond, Medal } from "lucide-react"
 
-interface SponsorList {
-  name: string
-  icon: typeof Diamond
-  description: string
-  sponsors: {
-    name: string
-    logo: string
-    website: string
-  }[]
-}
+// interface SponsorList {
+//   name: string
+//   icon: typeof Diamond
+//   description: string
+//   sponsors: {
+//     name: string
+//     logo: string
+//     website: string
+//   }[]
+// }
 
 export default function Sponsors() {
   const [] = useState<string | null>(null)
