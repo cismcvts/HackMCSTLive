@@ -135,7 +135,7 @@ export default function Hero() {
       </div>
       <ThreeDMainHeader />
 
-      <div className="hero opacity-0 h-screen sticky top-0 overflow-hidden w-full">
+      <div className="hero opacity-0 sticky top-0 overflow-hidden w-full">
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
           <div className="relative w-full flex flex-col items-center">
             <h1
@@ -205,4 +205,3 @@ export default function Hero() {
     </div>
   )
 }
-
