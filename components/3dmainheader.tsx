@@ -265,9 +265,11 @@ export default function ThreeDMainHeader() {
               collaboration. Build innovative projects and compete for prizes!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <Link href={"https://mcvts.jumbula.com/HackathonX/HackathonX"}>
               <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white border-none">
                 Register Now
               </Button>
+              </Link>
               <Link href="/code-of-conduct">
                 <Button
                   variant="outline"

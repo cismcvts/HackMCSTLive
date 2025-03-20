@@ -5,6 +5,7 @@ import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -18,7 +19,7 @@ export default function Navbar() {
     { name: "Documentary", href: pathname === "/" ? "#documentary" : "/#documentary" },
     { name: "Testimonials", href: pathname === "/" ? "#testimonials" : "/#testimonials" },
     { name: "Sponsors", href: pathname === "/" ? "#sponsors" : "/#sponsors" }, 
-    { name: "Register", href: "#", isButton: true },
+    { name: "Register", href: "https://mcvts.jumbula.com/HackathonX/HackathonX", isButton: true },
   ]
 
   return (
@@ -30,7 +31,9 @@ export default function Navbar() {
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
+          <Link href={"./"}>
           <Image src="/mainlogored.png" alt="logo" width={50} height={20}></Image>
+          </Link>
           <div className="flex-shrink-0">
             <a href="#" className="flex items-center">
               <span className="text-2xl font-bold bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">
@@ -42,12 +45,16 @@ export default function Navbar() {
             {navItems.map((item) =>
               item.isButton ? (
                 <Button
-                  key={item.name}
-                  variant="outline"
-                  className="bg-red-600/10 border-red-500/50 text-red-500 hover:bg-red-600/20 hover:text-red-400 transition-colors"
-                >
-                  {item.name}
-                </Button>
+                    key={item.name}
+                    variant="outline"
+                    className="bg-red-600/10 border-red-500/50 text-red-500 hover:bg-red-600/20 hover:text-red-400 transition-colors"
+                    asChild
+                  >
+                    <a href={item.href} target="_blank" rel="noopener noreferrer">
+                      {item.name}
+                    </a>
+                  </Button>
+
               ) : (
                 <a
                   key={item.name}
@@ -102,4 +109,3 @@ export default function Navbar() {
     </nav>
   )
 }
-
