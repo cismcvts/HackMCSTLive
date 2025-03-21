@@ -16,7 +16,7 @@ type Winner = {
 const winners = [
   {
     place: "1st Place",
-    project: "Sign Speaks",
+    project: "SignSpeak",
     members: "Dylan Cortegana, Veer Mangat, Siddhant Shah, & Rishi Rana",
     image: "/image/hackmcst-1stplace.png",
   },
