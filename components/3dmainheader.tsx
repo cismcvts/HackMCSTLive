@@ -245,30 +245,30 @@ export default function ThreeDMainHeader() {
     <div
       ref={containerRef}
       className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden"
-      style={{ height: "100vh" }} 
+      style={{ minHeight: "100vh", height: "auto" }}
     >
       <div className="absolute inset-0 bg-gradient-to-b z-10" />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-[100px] animate-pulse" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-800/20 rounded-full blur-[100px] animate-pulse" />
 
-      <div className="container relative z-10 h-full flex items-center">
+      <div className="container relative z-10 py-16 md:py-0 flex items-center">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full items-center">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-red-500 to-red-200 bg-clip-text text-transparent">
+          <div className="text-center lg:text-left py-4">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-red-500 to-red-200 bg-clip-text text-transparent">
               hackMCST 2025
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-6">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-4 md:mb-6">
               April 26, 2025 • Morris County School of Technology
             </p>
-            <p className="text-gray-400 max-w-lg mx-auto lg:mx-0 mb-8">
+            <p className="text-sm sm:text-base text-gray-400 max-w-lg mx-auto lg:mx-0 mb-6 md:mb-8">
               Join us at Morris County's premier Middle/High school hackathon for 12 hours of coding, creativity, and
               collaboration. Build innovative projects and compete for prizes!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link href={"https://mcvts.jumbula.com/HackathonX/HackathonX"}>
-              <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white border-none">
-                Register Now
-              </Button>
+                <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white border-none">
+                  Register Now
+                </Button>
               </Link>
               <Link href="/code-of-conduct">
                 <Button
@@ -283,7 +283,7 @@ export default function ThreeDMainHeader() {
             </div>
           </div>
 
-          <div className="h-[500px] lg:h-[600px] relative">
+          <div className="h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] relative">
             <div ref={canvasRef} className="absolute inset-0"></div>
             <div ref={loadingRef} className="absolute inset-0 flex flex-col items-center justify-center z-10">
               <div className="w-16 h-16 border-4 border-t-red-500 border-r-red-500/50 border-b-red-500/30 border-l-red-500/10 rounded-full animate-spin mb-4"></div>
@@ -295,3 +295,4 @@ export default function ThreeDMainHeader() {
     </div>
   )
 }
+
