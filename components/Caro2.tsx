@@ -1,7 +1,8 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import Image from "next/image"
 
 interface Slide {
   place: string
@@ -17,34 +18,52 @@ interface CarouselProps {
 export default function Carousel({ slides = [] }: CarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0)
 
+  // Define these functions with useCallback to prevent recreation on each render
+  const nextSlide = useCallback(() => {
+    if (slides.length === 0) return
+    setCurrentSlide((prev) => (prev + 1) % slides.length)
+  }, [slides.length])
+
+  const prevSlide = useCallback(() => {
+    if (slides.length === 0) return
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
+  }, [slides.length])
+
+  // Set up the interval for auto-sliding
   useEffect(() => {
+    if (slides.length === 0) return
+
     const interval = setInterval(() => {
       nextSlide()
     }, 5000)
 
-    return () => clearInterval(interval) // Cleanup on unmount
-  }, [currentSlide]) 
+    return () => clearInterval(interval)
+  }, [nextSlide, slides.length]) // Only depend on nextSlide and slides.length
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length) // Loop back to first slide
-  }
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length) // Loop to last slide
-  }
-
-  if (!slides || slides.length === 0) {
+  // Early return for empty slides
+  if (slides.length === 0) {
     return <div className="text-center text-white">No winners to display.</div>
   }
 
   return (
     <div className="relative w-full max-w-4xl mx-auto overflow-hidden shadow-lg">
       {/* Image Carousel */}
-      <div className="flex transition-transform duration-500 ease-in-out"
-        style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+      <div
+        className="flex transition-transform duration-500 ease-in-out"
+        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+      >
         {slides.map((slide, index) => (
           <div key={index} className="w-full flex-shrink-0">
-            <img src={slide.image} alt={slide.project} className="w-full object-cover" />
+            <div className="relative w-full aspect-video">
+              <Image
+                src={slide.image || "/placeholder.svg"}
+                alt={slide.project}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover"
+                priority={index === 0}
+              />
+            </div>
             <div className="p-4 text-center">
               <h3 className="text-xl font-bold">{slide.place}</h3>
               <h4 className="text-lg">{slide.project}</h4>
@@ -71,3 +90,4 @@ export default function Carousel({ slides = [] }: CarouselProps) {
     </div>
   )
 }
+

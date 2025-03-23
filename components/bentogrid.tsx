@@ -138,7 +138,14 @@ export default function CyberBento() {
           <div className="absolute inset-0 bg-gradient-to-br from-red-100 to-transparent" />
           <div className="relative h-full flex flex-col items-center justify-center">
             <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
-              <Image src="/mainlogored.png" alt="Logo" fill className="object-contain" />
+              <Image
+                src="/mainlogored.png"
+                alt="Logo"
+                fill
+                sizes="(max-width: 640px) 80px, (max-width: 768px) 96px, (max-width: 1024px) 112px, 128px"
+                className="object-contain"
+                priority
+              />
             </div>
           </div>
         </motion.div>

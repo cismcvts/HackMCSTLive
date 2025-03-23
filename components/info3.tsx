@@ -88,6 +88,7 @@ export default function Info3() {
         ))}
       </Accordion>
 
+
       <div className="mt-8 text-center text-sm text-muted-foreground px-4">
       <p className="flex flex-wrap items-center justify-center gap-2 max-w-[90%] mx-auto">
         <Mail className="h-4 w-4 flex-shrink-0" />

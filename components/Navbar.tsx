@@ -14,11 +14,11 @@ export default function Navbar() {
   const navItems = [
     { name: "Info", href: pathname === "/" ? "#info" : "/#info" },
     { name: "About", href: pathname === "/" ? "#about" : "/#about" },
-    { name: "FAQ", href: pathname === "/" ? "#faq" : "/#faq"  },
+    { name: "FAQ", href: pathname === "/" ? "#faq" : "/#faq" },
     { name: "Previous Winners", href: pathname === "/" ? "#previouswinners" : "/#previouswinners" },
     { name: "Documentary", href: pathname === "/" ? "#documentary" : "/#documentary" },
     { name: "Testimonials", href: pathname === "/" ? "#testimonials" : "/#testimonials" },
-    { name: "Sponsors", href: pathname === "/" ? "#sponsors" : "/#sponsors" }, 
+    { name: "Sponsors", href: pathname === "/" ? "#sponsors" : "/#sponsors" },
     { name: "Register", href: "https://mcvts.jumbula.com/HackathonX/HackathonX", isButton: true },
   ]
 
@@ -31,13 +31,19 @@ export default function Navbar() {
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href={"./"}>
-          <Image src="/mainlogored.png" alt="logo" width={50} height={20}></Image>
+          <Link href="./" className="relative h-10 w-10">
+            <Image
+              src="/mainlogored.png"
+              alt="logo"
+              fill
+              sizes="(max-width: 768px) 40px, 50px"
+              priority
+              className="object-contain"
+            />
           </Link>
           <div className="flex-shrink-0">
             <a href="#" className="flex items-center">
-              <span className="text-2xl font-bold bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">
-              </span>
+              <span className="text-2xl font-bold bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent"></span>
             </a>
           </div>
 
@@ -45,16 +51,15 @@ export default function Navbar() {
             {navItems.map((item) =>
               item.isButton ? (
                 <Button
-                    key={item.name}
-                    variant="outline"
-                    className="bg-red-600/10 border-red-500/50 text-red-500 hover:bg-red-600/20 hover:text-red-400 transition-colors"
-                    asChild
-                  >
-                    <a href={item.href} target="_blank" rel="noopener noreferrer">
-                      {item.name}
-                    </a>
-                  </Button>
-
+                  key={item.name}
+                  variant="outline"
+                  className="bg-red-600/10 border-red-500/50 text-red-500 hover:bg-red-600/20 hover:text-red-400 transition-colors"
+                  asChild
+                >
+                  <a href={item.href} target="_blank" rel="noopener noreferrer">
+                    {item.name}
+                  </a>
+                </Button>
               ) : (
                 <a
                   key={item.name}
@@ -91,14 +96,18 @@ export default function Navbar() {
                 key={item.name}
                 variant="outline"
                 className="w-full mt-4 bg-red-600/10 border-red-500/50 text-red-500 hover:bg-red-600/20 hover:text-red-400 transition-colors"
+                asChild
               >
-                {item.name}
+                <a href={item.href} target="_blank" rel="noopener noreferrer">
+                  {item.name}
+                </a>
               </Button>
             ) : (
               <a
                 key={item.name}
                 href={item.href}
                 className="text-gray-300 hover:text-red-400 hover:bg-red-900/20 block px-3 py-2 text-base font-medium rounded-md transition-colors"
+                onClick={() => setIsOpen(false)}
               >
                 {item.name}
               </a>
@@ -109,3 +118,4 @@ export default function Navbar() {
     </nav>
   )
 }
+
