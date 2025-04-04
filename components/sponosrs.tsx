@@ -40,7 +40,7 @@ export default function Sponsors() {
         },
         {
           name: "Morris County Vocational Teacher Education Association",
-          logo: "./sponsors/mcvtea.png",
+          logo: "./sponsors/MCVTEA.png",
           website: "https://mcvtea.org/",
         },
         {
