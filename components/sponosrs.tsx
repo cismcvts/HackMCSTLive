@@ -2,11 +2,11 @@
 
 import { useState } from "react"
 import { type Diamond, Medal } from "lucide-react"
+import Image from "next/image"
 
 interface SponsorList {
   name: string
   icon: typeof Diamond
-  description: string
   sponsors: {
     name: string
     logo: string
@@ -21,32 +21,36 @@ export default function Sponsors() {
     {
       name: "Sponsors",
       icon: Medal,
-      description:"Thank you for your support!",
       sponsors: [
         {
           name: "Luma Hosting Inc.",
-          logo: "./sponsors/luma.jpg",
+          logo: "/sponsors/luma.jpg",
           website: "https://luma.im/",
         },
         {
-          name: "NJ Cybersecurity & Communications Integration Cell",
-          logo: "./sponsors/NJCCIC.png",
-          website: "https://www.cyber.nj.gov/",
+          name: "CodeNinjas",
+          logo: "/sponsors/CodeNinjasLogo.png",
+          website: "https://www.codeninjas.com/",
         },
         {
           name: "Picatinny Arsenal STEM",
-          logo: "./sponsors/pica.jpg",
+          logo: "/sponsors/pica.jpg",
           website: "https://home.army.mil/picatinny/",
         },
         {
           name: "Morris County Vocational Teacher Education Association",
-          logo: "./sponsors/MCVTEA.png",
+          logo: "/sponsors/MCVTEA.png",
           website: "https://mcvtea.org/",
         },
         {
           name: "MCST Parent-Teacher Organization",
-          logo: "./sponsors/mcst-pto.png",
+          logo: "/sponsors/mcst-pto.png",
           website: "https://mcvts.membershiptoolkit.com/",
+        },
+        {
+          name: "Brain Bytes Academy",
+          logo: "/sponsors/brainbytes.jpeg",
+          website: "https://brainbytesacademy.com/",
         },
       ],
     },
@@ -71,36 +75,40 @@ export default function Sponsors() {
       <div className="space-y-16">
         {sponsorTiers.map((tier) => (
           <div key={tier.name} className="relative">
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <h3 className="text-2xl font-semibold text-gray-800"></h3>
-            </div>
-            <div
-              className={`grid gap-8 justify-items-center ${
-                tier.name === "Platinum Sponsors"
-                  ? "grid-cols-1 md:grid-cols-3"
-                  : tier.name === "Gold Sponsors"
-                    ? "grid-cols-2 md:grid-cols-4"
-                    : "grid-cols-2 md:grid-cols-5"
-              }`}
-            >
+            <div className="flex items-center justify-center gap-3 mb-8"></div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {tier.sponsors.map((sponsor) => (
                 <a
                   key={sponsor.name}
                   href={sponsor.website}
-                  className="relative group w-full aspect-square"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative group aspect-[4/3] h-full"
                   onMouseEnter={() => setHoveredSponsor(sponsor.name)}
                   onMouseLeave={() => setHoveredSponsor(null)}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-red-100/70 to-white rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-red-500 to-red-600 rounded-xl opacity-0 group-hover:opacity-20 blur transition-opacity" />
+
                   <div className="relative flex items-center justify-center h-full bg-white/90 backdrop-blur-sm border border-red-200 rounded-xl p-4 transition-colors group-hover:border-red-400 shadow-sm">
-                    <div className="w-full h-full flex items-center justify-center">
-                      <img
-                        src={sponsor.logo || "/placeholder.svg"}
-                        alt={sponsor.name}
-                        className="max-w-full max-h-full object-contain transition-all duration-300"
-                      />
+                    <div className="w-full h-full flex flex-col items-center justify-center">
+                      <div className="relative w-full h-[80%] flex items-center justify-center">
+                        <Image
+                          src={sponsor.logo || "/placeholder.svg"}
+                          alt={sponsor.name}
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          className="object-contain"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement
+                            target.src = "/abstract-geometric-logo.png"
+                          }}
+                        />
+                      </div>
+                      <p className="mt-2 text-sm text-gray-600 text-center font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                        {sponsor.name}
+                      </p>
                     </div>
                   </div>
                 </a>
