@@ -40,7 +40,7 @@ export default function CyberBento() {
     {
       name: "Python",
       icon: "Terminal",
-      description: "Master one of the World's Most popular Language",
+      description: "Master one of the World's most popular languages",
     },
     {
       name: "Computer Hardware",
