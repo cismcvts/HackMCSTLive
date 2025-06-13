@@ -16,39 +16,39 @@ type Winner = {
 const winners = [
   {
     place: "1st Place",
-    project: "SignSpeak",
-    members: "Dylan Cortegana, Veer Mangat, Siddhant Shah, & Rishi Rana",
-    image: "/image/hackmcst-1stplace.png",
+    project: "VisualAid A.I.",
+    members: "Mihir Malaviya",
+    image: "/image/1stplace.png",
   },
   {
     place: "2nd Place",
-    project: "Botero-Bot",
-    members: "Dhruv Kothari, Rohan Kommareddy, Bhavyansh Shivakoti, Devan Patel, & Dhruva Parthiban Kavithamani",
-    image: "/image/hackmcst-secondplace.jpg",
+    project: "Construction Safeguard Toolkit",
+    members: "Yashraj Iyer, Wonyul Choi, Arjun Pandey, Savinu Perera",
+    image: "/image/2ndplace.png",
   },
   {
     place: "3rd Place",
-    project: "Sodifier",
-    members: "Jadyn Monaco, Moosa Awais, Albert Zhang, Kyle Moy, Max Yung, Nick Klapal, & Maxon Baisley",
-    image: "/image/hackmcst-3rdplace.png",
+    project: "Culture-Aware A.I.",
+    members: "Avantika Lakshman, Karishma Shah, Medha Vavilala, Vanya Gupta",
+    image: "/image/3rdplace.png",
   },
   {
-    place: "Sustainability - Winner",
-    project: "Chef Go",
-    members: "Alizeh Mero, Sheyla Kugic, Isabella Huang, & Andrea Manzanares",
-    image: "/image/hackmcst-sustainability.png",
+    place: "Game Development - Winner",
+    project: "Planet Protector",
+    members: "Prabhav Kanneganti	, Sirius Morgan, Daniel,	Ivan",
+    image: "/image/gamedev.png",
   },
   {
-    place: "Healthcare - Winner",
-    project: "Voice Pilot",
-    members: "Shreyas Angadi, Vihas Veggalam, Alan Qu, & Ruthvik Venkatesan",
-    image: "/image/hackmcst-healthcare.png",
+    place: "Local Solution - Winner",
+    project: "Sympalyze",
+    members: "Adhyaay Karnwal, Ajay Boradia	, Jai Upadhyay",
+    image: "/image/localsolutionwinner.png",
   },
   {
-    place: "Cybersecurity - Winner",
-    project: "Catfishing",
-    members: "Megha Srinivas, Vanya Gupta, Medha Vavilala, Srinika Pamarthy, & Avantika Pamarthy",
-    image: "/image/hackmcst-cybersec.png",
+    place: "Middle School - Winner",
+    project: "Volunteer-link,",
+    members: "Nirvaan, Mattias, Ryan",
+    image: "/image/middleschoolwinner.png",
   },
 ]
 
@@ -284,9 +284,9 @@ export default function PreviousWinners() {
       <div className="container mx-auto relative">
         <div className="text-center mb-16 relative">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-red-500 to-red-200 bg-clip-text text-transparent">
-            Previous Winners
+            Congratulations To The Winners of HackMcstX!
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">HackMCST IX</p>
+          <p className="text-gray-600 max-w-2xl mx-auto">Thanks to all those who participated!</p>
           <div className="absolute left-1/2 -bottom-4 w-32 h-1 bg-gradient-to-r from-red-600/0 via-red-600 to-red-600/0 transform -translate-x-1/2" />
         </div>
         <div className="w-full max-w-4xl mx-auto">
