@@ -6,13 +6,6 @@ import {
   LocateIcon,
   GraduationCap,
   WorkflowIcon as Workshop,
-  Code,
-  Cpu,
-  Terminal,
-  HardDrive,
-  Puzzle,
-  Shield,
-  Globe,
 } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
@@ -26,44 +19,14 @@ export default function CyberBento() {
     seconds: 0,
   })
 
-  const workshops = [
-    {
-      name: "Website Development",
-      icon: "Code",
-      description: "Build your own website from scratch",
-    },
-    {
-      name: "Arduino",
-      icon: "Cpu",
-      description: "Create real-world interactive circuits",
-    },
-    {
-      name: "Python",
-      icon: "Terminal",
-      description: "Master one of the World's most popular languages",
-    },
-    {
-      name: "Computer Hardware",
-      icon: "HardDrive",
-      description: "Discover what makes computers function",
-    },
-    {
-      name: "Intro to Scratch",
-      icon: "Puzzle",
-      description: "Learn coding through fun visual blocks",
-    },
-    {
-      name: "Intro to CyberSecurity",
-      icon: "Shield",
-      description: "Protect digital systems from threats",
-    },
-    {
-      name: "API-calls",
-      icon: "Globe",
-      description: "Connect your apps with the world",
-    },
-  ]
-  const [currentWorkshopIndex, setCurrentWorkshopIndex] = useState(0)
+  // const workshops = [
+  //   {
+  //     name: "",
+  //     icon: "",
+  //     description: "",
+  //   },
+  // ]
+  // const [currentWorkshopIndex, setCurrentWorkshopIndex] = useState(0)
   useEffect(() => {
     const date = new Date("April 26, 2025").getTime()
     const timeleft = () => {
@@ -84,12 +47,12 @@ export default function CyberBento() {
     return () => clearInterval(timer)
   }, [])
 
-  useEffect(() => {
-    const workshopInterval = setInterval(() => {
-      setCurrentWorkshopIndex((prevIndex) => (prevIndex + 1) % workshops.length)
-    }, 3000)
-    return () => clearInterval(workshopInterval)
-  }, [workshops.length])
+  // useEffect(() => {
+  //   const workshopInterval = setInterval(() => {
+  //     setCurrentWorkshopIndex((prevIndex) => (prevIndex + 1) % workshops.length)
+  //   }, 3000)
+  //   return () => clearInterval(workshopInterval)
+  // }, [workshops.length])
 
   return (
     <div className="w-full max-w-6xl mx-auto p-4">
@@ -216,32 +179,6 @@ export default function CyberBento() {
             <Workshop className="h-4 w-4 md:h-5 md:w-5 text-red-600" />
             <h2 className="text-red-600 font-bold text-s sm:text-sm md:text-base pb-2">Workshops:</h2>
             <div className="flex-1 flex items-center justify-center">
-              <motion.div
-                key={`workshop-${currentWorkshopIndex}`}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.5, type: "spring" }}
-                className="text-center"
-              >
-                <div className="flex justify-center mb-2">
-                  {workshops[currentWorkshopIndex].icon === "Code" && <Code className="h-6 w-6 text-red-500" />}
-                  {workshops[currentWorkshopIndex].icon === "Cpu" && <Cpu className="h-6 w-6 text-red-500" />}
-                  {workshops[currentWorkshopIndex].icon === "Terminal" && <Terminal className="h-6 w-6 text-red-500" />}
-                  {workshops[currentWorkshopIndex].icon === "HardDrive" && (
-                    <HardDrive className="h-6 w-6 text-red-500" />
-                  )}
-                  {workshops[currentWorkshopIndex].icon === "Puzzle" && <Puzzle className="h-6 w-6 text-red-500" />}
-                  {workshops[currentWorkshopIndex].icon === "Shield" && <Shield className="h-6 w-6 text-red-500" />}
-                  {workshops[currentWorkshopIndex].icon === "Globe" && <Globe className="h-6 w-6 text-red-500" />}
-                </div>
-                <div className="text-red-600 font-bold text-sm sm:text-base">
-                  {workshops[currentWorkshopIndex].name}
-                </div>
-                <div className="text-red-500/80 font-mono text-xs mt-1">
-                  {workshops[currentWorkshopIndex].description}
-                </div>
-              </motion.div>
             </div>
           </div>
         </motion.div>

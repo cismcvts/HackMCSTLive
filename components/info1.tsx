@@ -14,10 +14,10 @@ function Info1() {
   return (
     <div
       id="about"
-      className="bg-transparent text-black fontarchytype text-center pt-9 pb-9 overheadDv bg-white d-flex flex-column justify-content-center align-items-center my-4"
+      className="bg-transparent text-black  text-center pt-9 pb-9 overheadDv bg-white d-flex flex-column justify-content-center align-items-center my-4"
     >
       <div className="text-center mb-16 relative">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent">
+        <h2 className="text-3xl md:text-4xl mb-4 text-red-600">
           Hack Your Dreams
         </h2>
         <p className="text-gray-700 max-w-2xl mx-auto">

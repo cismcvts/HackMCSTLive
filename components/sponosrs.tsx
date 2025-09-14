@@ -58,12 +58,8 @@ export default function Sponsors() {
 
   return (
     <div id="sponsors" className="relative w-full max-w-7xl mx-auto px-4 py-16">
-      <div className="absolute inset-0 bg-gradient-to-br from-red-50 via-white to-white rounded-xl -z-10" />
-      <div className="absolute -top-40 left-1/3 w-96 h-96 rounded-full blur-[100px] animate-pulse" />
-      <div className="absolute -bottom-40 right-1/3 w-96 h-96 rounded-full blur-[100px] animate-pulse" />
-
       <div className="text-center mb-16 relative">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent">
+        <h2 className="text-3xl md:text-4xl mb-4 text-red-600">
           Our Sponsors
         </h2>
         <p className="text-gray-600 max-w-2xl mx-auto">

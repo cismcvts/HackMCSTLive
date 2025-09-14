@@ -1,7 +1,6 @@
 "use client"
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Mail } from "lucide-react"
 
 export default function Info3() {
   const faqItems = [
@@ -75,10 +74,13 @@ export default function Info3() {
   ]
 
   return (
-    <section id="faq" className="py-16 px-4 max-w-4xl mx-auto text-black fontarchytype">
-    <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-red-500 to-red-200 bg-clip-text text-transparent">
+    <section id="faq" className="py-16 px-4 max-w-4xl mx-auto text-black">
+      <h2 className="text-3xl md:text-4xl mb-4 text-red-600">
           Frequently-Asked-Questions
         </h2>
+        <br />
+        <div className="mx-auto w-32 h-1 bg-gradient-to-r from-red-600/0 via-red-600 to-red-600/0" />
+
       <Accordion type="single" collapsible className="w-full">
         {faqItems.map((item, index) => (
           <AccordionItem key={index} value={`item-${index}`}>
@@ -91,7 +93,6 @@ export default function Info3() {
 
       <div className="mt-8 text-center text-sm text-muted-foreground px-4">
       <p className="flex flex-wrap items-center justify-center gap-2 max-w-[90%] mx-auto">
-        <Mail className="h-4 w-4 flex-shrink-0" />
         <span>If you have any other questions, feel free to contact us at</span> 
         <a href="mailto:cis@mcvts.org" className="text-primary hover:underline whitespace-nowrap">
           cis@mcvts.org,

@@ -53,7 +53,7 @@ export default function Navbar() {
                 <Button
                   key={item.name}
                   variant="outline"
-                  className="bg-red-600/10 border-red-500/50 text-red-500 hover:bg-red-600/20 hover:text-red-400 transition-colors"
+                  className="bg-red-600 border-red-500/50 text-white hover:bg-black hover:text-white transition-colors"
                   asChild
                 >
                   <a href={item.href} target="_blank" rel="noopener noreferrer">

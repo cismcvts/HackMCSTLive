@@ -248,16 +248,13 @@ export default function ThreeDMainHeader() {
       style={{ minHeight: "100vh", height: "auto" }}
     >
       <div className="absolute inset-0 bg-gradient-to-b z-10" />
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-[100px] animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-800/20 rounded-full blur-[100px] animate-pulse" />
-
       <div className="container relative z-10 py-16 md:py-0 flex items-center">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full items-center">
           <div className="text-center lg:text-left py-4">
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-red-500 to-red-200 bg-clip-text text-transparent">
-              hackMCST 2025
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r text-red-600">
+              HackMCST 2025
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-4 md:mb-6">
+            <p className="text-lg sm:text-xl md:text-2xl text-black mb-4 md:mb-6">
               April 26, 2025 • Morris County School of Technology
             </p>
             <p className="text-sm sm:text-base text-gray-400 max-w-lg mx-auto lg:mx-0 mb-6 md:mb-8">
@@ -266,7 +263,7 @@ export default function ThreeDMainHeader() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link href={"https://mcvts.jumbula.com/HackathonX/HackathonX"}>
-                <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white border-none">
+                <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white border-none transform transition-transform duration-300 ease-in-out hover:scale-110 hover:-rotate-3">
                   Register Now
                 </Button>
               </Link>
@@ -274,7 +271,7 @@ export default function ThreeDMainHeader() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-red-500/50 text-red-400 hover:bg-red-600/20 hover:text-red-300 transition-colors group"
+                  className="text-red-600 hover:bg-black hover:text-white transition-colors group"
                 >
                   Code of Conduct
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />

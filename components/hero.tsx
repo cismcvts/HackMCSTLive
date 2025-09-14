@@ -1,5 +1,7 @@
 "use client"
 
+
+//NOTE: THIS FILE SERVES AS THE MAIN COMPONENT HUB FOR ALL SECTIONS, EDIT ACCORDINGLY
 import { useRef } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
