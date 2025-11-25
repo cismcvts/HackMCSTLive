@@ -25,10 +25,6 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full z-50">
       <div className="absolute inset-0 bg-gradient-to-r bg-white" />
-
-      <div className="absolute -top-20 left-1/4 w-32 h-32 bg-red-600/20 rounded-full blur-3xl" />
-      <div className="absolute -top-20 right-1/4 w-32 h-32 bg-red-800/20 rounded-full blur-3xl" />
-
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="./" className="relative h-10 w-10">
