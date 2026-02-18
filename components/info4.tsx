@@ -1,9 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback, useRef } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 
 interface Testimonial {
   quote: string
@@ -99,7 +97,7 @@ export default function Info4() {
 
   return (
     <div id="testimonials" className="w-full max-w-5xl mx-auto px-4 py-12 relative bg-white">
-      <div className="absolute inset-0 bg-gradient-to-br from-red-100/60 via-white/80 to-white rounded-xl -z-10" />
+      <div className="absolute inset-0 -z-10" />
 
       <div className="overflow-hidden relative">
         <div
@@ -108,12 +106,9 @@ export default function Info4() {
         >
           {testimonials.map((testimonial, index) => (
             <div key={index} className="w-full flex-shrink-0">
-              <Card className="border-0 bg-transparent shadow-none">
-                <CardContent className="p-6 md:p-10">
-                  <div className="relative">
-                    <div className="absolute -top-4 -left-4 w-20 h-20 bg-red-200/70 rounded-full blur-xl" />
-                    <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-red-300/50 rounded-full blur-xl" />
-
+    <Card className="border border-red-600 bg-transparent shadow-none">
+        <CardContent className="p-6 md:p-10 border-x-red-600">
+                  <div className="relativ">
                     <blockquote className="relative z-10">
                       <div className="text-4xl text-red-600 font-serif leading-tight mb-2">"</div>
                       <p className="text-base md:text-lg text-gray-700 mb-6 leading-relaxed">{testimonial.quote}</p>
@@ -133,17 +128,7 @@ export default function Info4() {
         </div>
       </div>
 
-      <div className="flex justify-between mt-6">
-        <Button
-          onClick={prevSlide}
-          variant="outline"
-          size="icon"
-          className="bg-white border-red-300 text-red-600 hover:bg-red-50 hover:text-red-700 hover:border-red-400"
-        >
-          <ChevronLeft className="h-5 w-5" />
-          <span className="sr-only">Previous</span>
-        </Button>
-
+      <div className="flex justify-center mt-6">
         <div className="flex space-x-2">
           {testimonials.map((_, index) => (
             <button
@@ -154,24 +139,13 @@ export default function Info4() {
                 setTimeout(() => setIsAnimating(false), 500)
               }}
               className={`w-2 h-2 rounded-full transition-all ${
-                index === currentIndex ? "bg-red-600 w-4" : "bg-gray-300 hover:bg-gray-400"
+                index === currentIndex ? "bg-red-600 w-4" : "bg-gray-300 :bg-gray-400hover"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
-
-        <Button
-          onClick={nextSlide}
-          variant="outline"
-          size="icon"
-          className="bg-white border-red-300 text-red-600 hover:bg-red-50 hover:text-red-700 hover:border-red-400"
-        >
-          <ChevronRight className="h-5 w-5" />
-          <span className="sr-only">Next</span>
-        </Button>
       </div>
     </div>
   )
 }
-
