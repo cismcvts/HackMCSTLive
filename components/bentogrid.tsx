@@ -1,12 +1,5 @@
 "use client"
 
-import {
-  Calendar,
-  Ticket,
-  LocateIcon,
-  GraduationCap,
-  WorkflowIcon as Workshop,
-} from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { useEffect, useState } from "react"
@@ -47,12 +40,6 @@ export default function CyberBento() {
     return () => clearInterval(timer)
   }, [])
 
-  // useEffect(() => {
-  //   const workshopInterval = setInterval(() => {
-  //     setCurrentWorkshopIndex((prevIndex) => (prevIndex + 1) % workshops.length)
-  //   }, 3000)
-  //   return () => clearInterval(workshopInterval)
-  // }, [workshops.length])
 
   return (
     <div className="w-full max-w-6xl mx-auto p-4">
@@ -63,9 +50,9 @@ export default function CyberBento() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="col-span-2 sm:col-span-2 lg:col-span-3 row-span-2 relative rounded-xl bg-white border border-red-300 p-3 md:p-6 overflow-hidden group hover:border-red-500 transition-colors"
+          className="col-span-2 sm:col-span-2 lg:col-span-3 row-span-2 relative rounded-xl bg-white border border-red-300 p-3 md:p-6 overflow-hidden"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-red-100 to-transparent" />
+          <div className="absolute inset-0" />
           <div className="relative h-full flex flex-col justify-between items-center">
             <div className="flex items-center gap-3">
               <div className="text-red-600 font-bold text-base sm:text-lg md:text-xl flex gap-1">
@@ -115,35 +102,32 @@ export default function CyberBento() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="col-span-2 sm:col-span-2 lg:col-span-3 relative rounded-xl bg-white border border-red-300 p-3 md:p-4 overflow-hidden group hover:border-red-500 transition-colors"
+          className="col-span-2 sm:col-span-2 lg:col-span-3 relative rounded-xl bg-white border border-red-300 p-3 md:p-4 overflow-hidden"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-red-100 to-transparent" />
+          <div className="absolute inset-0" />
           <div className="relative flex items-center justify-between">
             <h2 className="text-red-600 font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center">
               Register Today
             </h2>
-            <Ticket className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-red-600" />
           </div>
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="col-span-1 relative rounded-xl bg-white border border-red-300 p-2 md:p-4 overflow-hidden group hover:border-red-500 transition-colors"
+          className="col-span-1 relative rounded-xl bg-white border border-red-300 p-2 md:p-4 overflow-hidden group"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-red-100 to-transparent" />
+          <div className="absolute inset-0 " />
           <div className="relative h-full flex flex-col justify-between">
-            <Calendar className="h-4 w-4 md:h-5 md:w-5 text-red-600" />
             <p className="text-red-600 font-mono text-xs md:text-sm">April 26th, 2025</p>
           </div>
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="col-span-1 sm:col-span-2 lg:col-span-2 relative rounded-xl bg-white border border-red-300 p-2 md:p-4 overflow-hidden group hover:border-red-500 transition-colors"
+          className="col-span-1 sm:col-span-2 lg:col-span-2 relative rounded-xl bg-white border border-red-300 p-2 md:p-4 overflow-hidden group"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-red-100 to-transparent" />
+          <div className="absolute inset-0 " />
           <div className="relative h-full flex flex-col justify-between">
-            <GraduationCap className="h-4 w-4 md:h-5 md:w-5 text-red-600" />
             <div>
               <h2 className="text-red-600 font-bold text-xs sm:text-sm md:text-base">Participants:</h2>
               <p className="text-red-500/80 font-mono text-xs">Grades 7-12</p>
@@ -153,9 +137,9 @@ export default function CyberBento() {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="col-span-2 row-span-2 relative rounded-xl bg-white border border-red-300 p-3 md:p-6 overflow-hidden group hover:border-red-500 transition-colors"
+          className="col-span-2 row-span-2 relative rounded-xl bg-white border border-red-300 p-3 md:p-6 overflow-hidden group"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-red-100 to-transparent" />
+          <div className="absolute inset-0" />
           <div className="relative h-full flex flex-col items-center justify-center">
             <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
               <Image
@@ -172,11 +156,10 @@ export default function CyberBento() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="col-span-2 relative rounded-xl bg-white border border-red-300 p-2 md:p-4 overflow-hidden group hover:border-red-500 transition-colors"
+          className="col-span-2 relative rounded-xl bg-white border border-red-300 p-2 md:p-4 overflow-hidden group"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-red-100 to-transparent" />
+          <div className="absolute inset-0" />
           <div className="relative h-full flex flex-col justify-between">
-            <Workshop className="h-4 w-4 md:h-5 md:w-5 text-red-600" />
             <h2 className="text-red-600 font-bold text-s sm:text-sm md:text-base pb-2">Workshops:</h2>
             <div className="flex-1 flex items-center justify-center">
             </div>
@@ -185,11 +168,10 @@ export default function CyberBento() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="col-span-1 sm:col-span-1 lg:col-span-2 relative rounded-xl bg-white border border-red-300 p-2 md:p-4 overflow-hidden group hover:border-red-500 transition-colors"
+          className="col-span-1 sm:col-span-1 lg:col-span-2 relative rounded-xl bg-white border border-red-300 p-2 md:p-4 overflow-hidden group"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-red-100 to-transparent" />
+          <div className="absolute inset-0 " />
           <div className="relative h-full flex flex-col justify-between">
-            <Ticket className="h-4 w-4 md:h-5 md:w-5 text-red-600" />
             <div>
               <h2 className="text-red-600 font-bold text-xs sm:text-sm md:text-base">Cost to Enter:</h2>
               <p className="text-red-500/80 font-mono text-xs">$0</p>
@@ -199,12 +181,11 @@ export default function CyberBento() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="col-span-2 sm:col-span-3 lg:col-span-4 relative rounded-xl bg-white border border-red-300 p-2 md:p-4 overflow-hidden group hover:border-red-500 transition-colors"
+          className="col-span-2 sm:col-span-3 lg:col-span-4 relative rounded-xl bg-white border border-red-300 p-2 md:p-4 overflow-hidden group"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-red-100 to-transparent" />
+          <div className="absolute inset-0" />
           <div className="relative h-full flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
             <div className="flex items-center gap-2">
-              <LocateIcon className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-red-600" />
               <h2 className="text-red-600 font-bold text-xs sm:text-sm md:text-base">Location</h2>
             </div>
             <div className="pl-30 sm:grid-cols-3 gap-1 sm:gap-4">
