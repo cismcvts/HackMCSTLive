@@ -2,8 +2,6 @@
 
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import gsap from "gsap"
 
 type Winner = {
@@ -107,7 +105,6 @@ const SimpleCarousel = ({ slides }: { slides: Winner[] }) => {
     if (btnRef.current) {
       gsap.to(btnRef.current, {
         scale: 0.9,
-        backgroundColor: "rgba(239, 68, 68, 0.1)",
         duration: 0.2,
         yoyo: true,
         repeat: 1,
@@ -119,21 +116,6 @@ const SimpleCarousel = ({ slides }: { slides: Winner[] }) => {
         },
       })
     }
-
-    const flash = document.createElement("div")
-    flash.className = "absolute inset-0 bg-red-500/10 rounded-lg z-10"
-    container.appendChild(flash)
-
-    gsap.to(flash, {
-      opacity: 0,
-      duration: 0.5,
-      ease: "power2.out",
-      onComplete: () => {
-        if (container.contains(flash)) {
-          container.removeChild(flash)
-        }
-      },
-    })
 
     gsap.fromTo(
       container,
@@ -169,18 +151,6 @@ const SimpleCarousel = ({ slides }: { slides: Winner[] }) => {
     animateSlide(direction, index)
   }
 
-  const nextSlide = () => {
-    if (isAnimating) return
-    const newIndex = (activeIndex + 1) % totalPages
-    animateSlide("next", newIndex)
-  }
-
-  const prevSlide = () => {
-    if (isAnimating) return
-    const newIndex = (activeIndex - 1 + totalPages) % totalPages
-    animateSlide("prev", newIndex)
-  }
-
   const getCurrentSlides = () => {
     const start = activeIndex * slidesToShow
     const end = Math.min(start + slidesToShow, slides.length)
@@ -206,7 +176,7 @@ const SimpleCarousel = ({ slides }: { slides: Winner[] }) => {
                 ref={(el: HTMLDivElement | null) => {
                   cardRefs.current[index] = el
                 }}
-                className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transition-shadow duration-300 hover:shadow-lg"
+                className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transition-shadow duration-300"
                 style={{ minHeight: maxHeight > 0 ? `${maxHeight}px` : "auto" }}
               >
                 <div className="relative aspect-video">
@@ -224,7 +194,7 @@ const SimpleCarousel = ({ slides }: { slides: Winner[] }) => {
                   <h3 className="text-red-600 font-bold text-lg">{slide.place}</h3>
                   <h4 className="font-semibold text-gray-800">{slide.project}</h4>
                   <div className="mt-2 overflow-y-auto flex-grow">
-                    <p className="text-gray-600 text-sm line-clamp-3 hover:line-clamp-none transition-all duration-300">
+                    <p className="text-gray-600 text-sm line-clamp-3">
                       {slide.members}
                     </p>
                   </div>
@@ -236,18 +206,6 @@ const SimpleCarousel = ({ slides }: { slides: Winner[] }) => {
       </div>
 
       <div className="flex justify-center items-center mt-6 gap-4">
-        <Button
-          ref={prevBtnRef}
-          onClick={prevSlide}
-          variant="outline"
-          size="icon"
-          className="bg-white border-red-300 text-red-600 hover:bg-red-50 hover:text-red-700 transition-all duration-300"
-          aria-label="Previous slide"
-          disabled={(activeIndex === 0 && slideDirection !== "next") || isAnimating}
-        >
-          <ChevronLeft className="h-5 w-5" />
-        </Button>
-
         <div className="flex items-center gap-2">
           {Array.from({ length: totalPages }).map((_, index) => (
             <button
@@ -261,18 +219,6 @@ const SimpleCarousel = ({ slides }: { slides: Winner[] }) => {
             />
           ))}
         </div>
-
-        <Button
-          ref={nextBtnRef}
-          onClick={nextSlide}
-          variant="outline"
-          size="icon"
-          className="bg-white border-red-300 text-red-600 hover:bg-red-50 hover:text-red-700 transition-all duration-300"
-          aria-label="Next slide"
-          disabled={(activeIndex === totalPages - 1 && slideDirection !== "prev") || isAnimating}
-        >
-          <ChevronRight className="h-5 w-5" />
-        </Button>
       </div>
     </div>
   )
@@ -296,4 +242,3 @@ export default function PreviousWinners() {
     </section>
   )
 }
-
