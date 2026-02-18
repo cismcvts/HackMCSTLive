@@ -257,7 +257,7 @@ export default function ThreeDMainHeader() {
             <p className="text-lg sm:text-xl md:text-2xl text-black mb-4 md:mb-6">
               April 26, 2025 • Morris County School of Technology
             </p>
-            <p className="text-sm sm:text-base text-gray-400 max-w-lg mx-auto lg:mx-0 mb-6 md:mb-8">
+            <p className="text-sm sm:text-base max-w-lg mx-auto lg:mx-0 mb-6 md:mb-8">
               Join us at Morris County's premier Middle/High school hackathon for 12 hours of coding, creativity, and
               collaboration. Build innovative projects and compete for prizes!
             </p>
@@ -292,4 +292,3 @@ export default function ThreeDMainHeader() {
     </div>
   )
 }
-
