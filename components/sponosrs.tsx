@@ -85,7 +85,6 @@ export default function Sponsors() {
                   onMouseLeave={() => setHoveredSponsor(null)}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-red-100/70 to-white rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-red-500 to-red-600 rounded-xl opacity-0 group-hover:opacity-20 blur transition-opacity" />
 
                   <div className="relative flex items-center justify-center h-full bg-white/90 backdrop-blur-sm border border-red-200 rounded-xl p-4 transition-colors group-hover:border-red-400 shadow-sm">
                     <div className="w-full h-full flex flex-col items-center justify-center">
